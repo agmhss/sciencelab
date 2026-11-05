@@ -1,0 +1,3133 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="web_dashboard" name="shell-type">
+  <title>QuantumLab • அறிவியல் ஆய்வகம் | STEM Virtual Science Lab</title>
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Space+Grotesk:wght@100..900&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error": "#690005",
+            "outline-variant": "#3a494b",
+            "surface": "#0f131c",
+            "on-secondary-container": "#baaeff",
+            "on-secondary-fixed": "#1a0063",
+            "secondary-fixed": "#e5deff",
+            "tertiary-container": "#b2e1ff",
+            "on-surface": "#dfe2ee",
+            "primary-fixed": "#6ff6ff",
+            "error": "#ffb4ab",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "inverse-surface": "#dfe2ee",
+            "surface-container-high": "#262a33",
+            "error-container": "#93000a",
+            "on-tertiary-fixed": "#001e2c",
+            "surface-container-highest": "#31353e",
+            "primary-fixed-dim": "#00dce6",
+            "inverse-primary": "#00696f",
+            "on-surface-variant": "#b9cacb",
+            "surface-container": "#1c2028",
+            "on-primary-fixed-variant": "#004f53",
+            "secondary-fixed-dim": "#c9bfff",
+            "secondary-container": "#4720ca",
+            "tertiary-fixed": "#c4e7ff",
+            "surface-bright": "#353942",
+            "on-secondary-fixed-variant": "#441cc8",
+            "primary": "#e0fdff",
+            "surface-container-lowest": "#0a0e16",
+            "on-secondary": "#2e009c",
+            "inverse-on-surface": "#2c3039",
+            "background": "#0f131c",
+            "outline": "#849495",
+            "on-tertiary-fixed-variant": "#004c69",
+            "on-tertiary": "#00354a",
+            "surface-container-low": "#181c24",
+            "surface-dim": "#0f131c",
+            "on-primary": "#00373a",
+            "tertiary": "#f1f8ff",
+            "on-tertiary-container": "#00678c",
+            "on-background": "#dfe2ee",
+            "on-primary-container": "#006a70",
+            "on-primary-fixed": "#002022",
+            "surface-variant": "#31353e",
+            "on-error-container": "#ffdad6",
+            "secondary": "#c9bfff",
+            "primary-container": "#00f2fe",
+            "surface-tint": "#00dce6"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "margin": "1.5rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "gutter-mobile": "0.5rem",
+            "gutter-tablet": "0.75rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "0.75rem",
+            "margin-tablet": "1rem"
+          },
+          fontFamily: {
+            "headline-sm": ["Space Grotesk", "Noto Sans Tamil", "sans-serif"],
+            "headline-xl": ["Space Grotesk", "Noto Sans Tamil", "sans-serif"],
+            "headline-lg-mobile": ["Space Grotesk", "Noto Sans Tamil", "sans-serif"],
+            "body-sm": ["Geist", "Noto Sans Tamil", "sans-serif"],
+            "body-md": ["Geist", "Noto Sans Tamil", "sans-serif"],
+            "headline-xl-mobile": ["Space Grotesk", "Noto Sans Tamil", "sans-serif"],
+            "telemetry-display": ["JetBrains Mono", "monospace"],
+            "headline-md": ["Space Grotesk", "Noto Sans Tamil", "sans-serif"],
+            "headline-lg": ["Space Grotesk", "Noto Sans Tamil", "sans-serif"],
+            "body-lg": ["Geist", "Noto Sans Tamil", "sans-serif"],
+            "label-sm": ["JetBrains Mono", "Noto Sans Tamil", "monospace"],
+            "label-lg": ["JetBrains Mono", "Noto Sans Tamil", "monospace"],
+            "label-md": ["JetBrains Mono", "Noto Sans Tamil", "monospace"]
+          },
+          fontSize: {
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "telemetry-display": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0e16; }
+    ::-webkit-scrollbar-thumb { background: #262a33; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #00dce6; }
+
+    /* English-only mode utility when toggled */
+    body.lang-en .ta-text { display: none !important; }
+
+    /* Drop animation for burette */
+    @keyframes dropFall {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      90% { transform: translateY(85px) scale(0.85); opacity: 0.9; }
+      100% { transform: translateY(95px) scale(1.4, 0.4); opacity: 0; }
+    }
+    .animate-drop {
+      animation: dropFall 0.45s cubic-bezier(0.4, 0, 1, 1) forwards;
+    }
+
+    /* Stir bar spin */
+    @keyframes stirBarSpin {
+      0% { transform: translateX(-50%) rotateY(0deg); }
+      50% { transform: translateX(-50%) rotateY(180deg) scaleX(0.4); }
+      100% { transform: translateX(-50%) rotateY(360deg); }
+    }
+    .stir-spin {
+      animation: stirBarSpin 0.5s linear infinite;
+    }
+
+    @media print {
+      header, aside, #toast-container, .no-print { display: none !important; }
+      .pl-64, .lg\:pl-64 { padding-left: 0 !important; }
+      main { padding-top: 0 !important; background: #0f131c !important; }
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-fixed">
+
+  <!-- TOP HEADER -->
+  <header class="fixed top-0 inset-x-0 h-16 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.24)] border-b border-outline-variant/15">
+    <div class="w-full h-16 px-gutter flex items-center justify-between gap-space-md">
+      <!-- Brand & Breadcrumb -->
+      <div class="flex items-center gap-space-md">
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" type="button" class="lg:hidden p-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-primary" title="Menu">
+          <span class="material-symbols-outlined text-xl">menu</span>
+        </button>
+
+        <button id="brand-home-btn" type="button" class="flex items-center gap-space-md text-left group focus:outline-none" title="முகப்புக்குச் செல் • Return to Dashboard">
+          <img alt="QuantumLab Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.src='https://placehold.co/64x64/00f2fe/002022?text=QL'" src="https://lh3.googleusercontent.com/aida/AEtjO1X7BD_5vOFIp7NZZhHb6uBy-0M2ml2-dnREkwW1c8l_atC_qwi192eh3C5lPbFAWbtwPHlwT3iud3UtSByVA4TKWKNPvaOwqeevLDfaGz4pluyssRt2rKG4Oc3-6rrr4UzV4m2nsnaLNzwpK7MsNxszic-qBMVJ98mM7KwnhxmTKBVXDzYQ-aw67xqbF098DMjVVmEZW30X1Nx1-BSgfcaFViauilsWzj6D9354HJP6">
+          <div class="hidden sm:flex flex-col">
+            <span class="font-headline-sm text-headline-sm tracking-tight text-primary leading-tight group-hover:text-primary-container transition-colors">QuantumLab</span>
+            <span class="font-label-sm text-label-sm text-primary-fixed-dim font-medium"><span class="ta-text">அறிவியல் ஆய்வகம் • </span>Science Lab</span>
+          </div>
+        </button>
+
+        <div class="hidden xl:flex items-center gap-space-xs pl-space-sm text-on-surface-variant font-label-sm text-label-sm">
+          <span id="header-breadcrumb-subject" class="text-outline">வேதியியல் / CHEMISTRY</span>
+          <span class="material-symbols-outlined text-sm text-outline">chevron_right</span>
+          <span id="header-breadcrumb-exp" class="text-primary-fixed-dim">அமில-கார ஆய்வு (EXP-04)</span>
+        </div>
+      </div>
+
+      <!-- Center Experiment Switcher Dropdown -->
+      <div class="flex-1 max-w-xl hidden md:flex items-center justify-center relative" id="exp-dropdown-wrapper">
+        <button id="exp-switcher-btn" type="button" class="w-full flex items-center justify-between bg-surface-container-low px-space-md py-space-xs rounded-lg transition-all hover:bg-surface-container border border-transparent hover:border-outline-variant/40">
+          <div class="flex items-center gap-space-sm min-w-0 text-left">
+            <span id="exp-switcher-icon" class="material-symbols-outlined text-primary-fixed-dim text-lg">science</span>
+            <div class="flex flex-col min-w-0">
+              <span id="exp-switcher-title-ta" class="font-label-md text-label-md text-on-surface truncate font-semibold">சோதனை 04: அமில-கார நடுநிலையாக்கல்</span>
+              <span id="exp-switcher-title-en" class="font-label-sm text-label-sm text-on-surface-variant truncate">Exp 04: Acid-Base Titration &amp; Calorimetry</span>
+            </div>
+          </div>
+          <span id="exp-switcher-chevron" class="material-symbols-outlined text-on-surface-variant text-base transition-transform duration-200">expand_more</span>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div id="exp-dropdown-menu" class="hidden absolute top-full left-0 right-0 mt-2 bg-surface-container-low border border-outline-variant/40 rounded-xl shadow-2xl overflow-hidden z-50 backdrop-blur-xl">
+          <div class="px-space-md py-2 bg-surface-container-lowest border-b border-outline-variant/20 flex items-center justify-between">
+            <span class="font-label-sm text-label-sm text-outline uppercase">சோதனைத் தேர்வு • Select Active Experiment</span>
+            <span class="font-label-sm text-label-sm text-primary-fixed-dim">3 Calibrated</span>
+          </div>
+          <div class="divide-y divide-outline-variant/15">
+            <button type="button" data-exp-select="chem" class="w-full px-space-md py-2.5 flex items-center justify-between hover:bg-surface-container transition-colors text-left">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-primary-container/20 text-primary-container flex items-center justify-center">
+                  <span class="material-symbols-outlined text-base">science</span>
+                </div>
+                <div>
+                  <div class="font-label-md text-label-md text-on-surface font-semibold">சோதனை 04: அமில-கார நடுநிலையாக்கல்</div>
+                  <div class="font-label-sm text-label-sm text-on-surface-variant">Exp 04: Acid-Base Titration &amp; Calorimetry (Chemistry)</div>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary-fixed font-label-sm text-label-sm">pH 7.02</span>
+            </button>
+            <button type="button" data-exp-select="phys" class="w-full px-space-md py-2.5 flex items-center justify-between hover:bg-surface-container transition-colors text-left">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-secondary-container/40 text-secondary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-base">motion_mode</span>
+                </div>
+                <div>
+                  <div class="font-label-md text-label-md text-on-surface font-semibold">சோதனை 02: தனி ஊசல் இயக்கம் &amp; முடுக்கம்</div>
+                  <div class="font-label-sm text-label-sm text-on-surface-variant">Exp 02: Simple Pendulum &amp; Gravitational Field (Physics)</div>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-secondary/20 text-secondary font-label-sm text-label-sm">9.81 m/s²</span>
+            </button>
+            <button type="button" data-exp-select="bio" class="w-full px-space-md py-2.5 flex items-center justify-between hover:bg-surface-container transition-colors text-left">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-tertiary-container/30 text-tertiary-fixed-dim flex items-center justify-center">
+                  <span class="material-symbols-outlined text-base">biotech</span>
+                </div>
+                <div>
+                  <div class="font-label-md text-label-md text-on-surface font-semibold">சோதனை 03: ஒளிச்சேர்க்கை &amp; ஒளிச்செறிவு</div>
+                  <div class="font-label-sm text-label-sm text-on-surface-variant">Exp 03: Hydrilla Photosynthesis Rate vs Light 1/d² (Biology)</div>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary-fixed-dim font-label-sm text-label-sm">47 bub/min</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Controls: Language, Timer, Action Buttons, Profile -->
+      <div class="flex items-center gap-space-sm sm:gap-space-md">
+        <!-- Language Switcher -->
+        <div class="flex items-center gap-1 bg-surface-container-high p-1 rounded-full border border-outline-variant/30 shadow-sm" id="language-segmented-selector" role="group" aria-label="மொழி தேர்வு / Language Selector">
+          <span class="material-symbols-outlined text-sm text-primary-fixed-dim pl-1 pr-0.5 select-none" aria-hidden="true">language</span>
+          <button id="lang-btn-ta" class="px-2.5 py-1 rounded-full text-label-sm font-semibold bg-primary-container text-on-primary-fixed shadow-[0_0_8px_#00f2fe] transition-all flex items-center gap-1 leading-none" type="button" title="தமிழ் + ஆங்கிலம் (Bilingual Mode)" aria-pressed="true">
+            <span id="lang-dot-ta" class="w-1.5 h-1.5 rounded-full bg-on-primary-fixed"></span>
+            <span>தமிழ்</span>
+          </button>
+          <button id="lang-btn-en" class="px-2.5 py-1 rounded-full text-label-sm font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-1 leading-none" type="button" title="Switch to English Focus Mode" aria-pressed="false">
+            <span id="lang-dot-en" class="hidden w-1.5 h-1.5 rounded-full bg-on-primary-fixed"></span>
+            <span>English</span>
+          </button>
+        </div>
+
+        <!-- Live Timer -->
+        <div class="hidden sm:flex items-center bg-surface-container-low px-space-md py-space-xs rounded-lg gap-space-sm border border-outline-variant/15">
+          <span id="timer-pulse-icon" class="material-symbols-outlined text-primary-container text-base animate-pulse">timer</span>
+          <div class="flex flex-col">
+            <span class="font-label-sm text-label-sm text-outline-variant leading-none"><span class="ta-text">நேரம் / </span>TIME</span>
+            <span id="global-timer-display" class="font-telemetry-display text-label-md text-primary font-bold">00:04:32</span>
+          </div>
+        </div>
+
+        <!-- Global Toolbar Actions -->
+        <div class="hidden lg:flex items-center gap-space-xs bg-surface-container-low p-space-xs rounded-lg border border-outline-variant/15">
+          <button id="btn-timer-toggle" class="p-space-xs rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="நிறுத்து / தொடங்கு (Pause/Play)" type="button">
+            <span id="icon-timer-toggle" class="material-symbols-outlined text-base">pause</span>
+          </button>
+          <button id="btn-global-reset" class="p-space-xs rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="மீட்டமை (Reset Timer & Simulation)" type="button">
+            <span class="material-symbols-outlined text-base">restart_alt</span>
+          </button>
+          <button id="btn-safety-modal" class="p-space-xs rounded text-on-surface-variant hover:text-primary-fixed hover:bg-surface-container transition-colors" title="பாதுகாப்பு வழிகாட்டல் (Safety Protocol)" type="button">
+            <span class="material-symbols-outlined text-base">verified_user</span>
+          </button>
+          <button id="btn-fullscreen" class="p-space-xs rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="முழுத்திரை (Fullscreen)" type="button">
+            <span id="icon-fullscreen" class="material-symbols-outlined text-base">fullscreen</span>
+          </button>
+        </div>
+
+        <!-- Student Profile -->
+        <div class="flex items-center gap-space-sm pl-space-xs">
+          <div class="hidden sm:flex flex-col text-right">
+            <span class="font-label-md text-label-md text-on-surface font-semibold"><span class="ta-text">மாயா லின் • </span>Maya</span>
+            <span class="font-label-sm text-label-sm text-primary-fixed-dim"><span class="ta-text">வகுப்பு 8 </span>(Age 13)</span>
+          </div>
+          <img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/40" onerror="this.src='https://placehold.co/64x64/4720ca/e5deff?text=ML'" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDggneFoOXJmjbGKaosm6xVzccV6esXvKiJBu1C_Ha5stIOKFFLM_oA_I71CyWeBzUjExBJxaSfy_FTKmqb1gw1kkW9xJK3mKVEpiyR26mvuSkOBF11fiF36k0f7Fm4DtyhZyXJBDbxSE2apUeZxjcuO_xZK5eHmbGLXpQCMyOkU2HzkvXTWnTk99-Uszy5Cb7G-H0PKCPrdTgSqNUHyJaAaHzkj3-gNRJHTbp54IU">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- LEFT NAVIGATION SIDEBAR -->
+  <aside id="app-sidebar" class="fixed left-0 top-16 bottom-0 w-64 bg-surface-container-lowest/95 backdrop-blur-xl z-40 flex flex-col justify-between py-space-md border-r border-outline-variant/15 transition-transform duration-300 -translate-x-full lg:translate-x-0">
+    <div class="flex flex-col gap-space-md px-space-md overflow-y-auto">
+      <div class="flex items-center justify-between px-space-sm">
+        <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider"><span class="ta-text">பிரிவுகள் • </span>Modules</span>
+        <span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_#00f2fe]"></span>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="flex flex-col gap-space-xs" id="sidebar-nav">
+        <a class="nav-item bg-surface-container text-primary border-l-2 border-primary-container px-space-md py-space-sm rounded-lg flex items-center justify-between transition-all" data-path="dashboard" href="#dashboard">
+          <div class="flex flex-col text-left leading-tight">
+            <span class="font-label-md text-label-md font-bold ta-text">முகப்பு கட்டுப்பாட்டு அறை</span>
+            <span class="font-label-sm text-label-sm opacity-90">Lab Overview Hub</span>
+          </div>
+          <span class="material-symbols-outlined text-sm text-primary-container">space_dashboard</span>
+        </a>
+
+        <a class="nav-item text-on-surface-variant hover:bg-surface-container hover:text-on-surface px-space-md py-space-sm rounded-lg flex items-center justify-between transition-all" data-path="interactive-workbench" href="#interactive-workbench">
+          <div class="flex flex-col text-left leading-tight">
+            <span class="font-label-md text-label-md font-bold ta-text">செயல்முறை ஆய்வகம்</span>
+            <span class="font-label-sm text-label-sm opacity-80">Interactive Lab</span>
+          </div>
+          <span class="material-symbols-outlined text-sm">tune</span>
+        </a>
+
+        <a class="nav-item text-on-surface-variant hover:bg-surface-container hover:text-on-surface px-space-md py-space-sm rounded-lg flex items-center justify-between transition-all" data-path="data-visualizer" href="#data-visualizer">
+          <div class="flex flex-col text-left leading-tight">
+            <span class="font-label-md text-label-md ta-text">வரைபடங்கள் &amp; தரவு</span>
+            <span class="font-label-sm text-label-sm opacity-70">Data &amp; Graphs</span>
+          </div>
+          <span class="material-symbols-outlined text-sm">monitoring</span>
+        </a>
+
+        <a class="nav-item text-on-surface-variant hover:bg-surface-container hover:text-on-surface px-space-md py-space-sm rounded-lg flex items-center justify-between transition-all" data-path="lab-notebook" href="#lab-notebook">
+          <div class="flex flex-col text-left leading-tight">
+            <span class="font-label-md text-label-md ta-text">ஆய்வுக் குறிப்பேடு</span>
+            <span class="font-label-sm text-label-sm opacity-70">Lab Notebook</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span id="sidebar-log-badge" class="px-1.5 py-0.2 rounded-full bg-primary-container/20 text-primary-fixed font-label-sm text-[10px]">18</span>
+            <span class="material-symbols-outlined text-sm">edit_note</span>
+          </div>
+        </a>
+
+        <a class="nav-item text-on-surface-variant hover:bg-surface-container hover:text-on-surface px-space-md py-space-sm rounded-lg flex items-center justify-between transition-all" data-path="theory-and-formulas" href="#theory-and-formulas">
+          <div class="flex flex-col text-left leading-tight">
+            <span class="font-label-md text-label-md ta-text">அறிவியல் கோட்பாடுகள்</span>
+            <span class="font-label-sm text-label-sm opacity-70">Science Concepts</span>
+          </div>
+          <span class="material-symbols-outlined text-sm">menu_book</span>
+        </a>
+      </nav>
+
+      <!-- Live Telemetry Sensors in Sidebar -->
+      <div class="pt-space-sm flex flex-col gap-space-xs">
+        <div class="flex items-center justify-between px-space-sm">
+          <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider"><span class="ta-text">சென்சார்கள் • </span>Sensors</span>
+          <span class="text-[10px] font-label-sm text-primary-fixed-dim animate-pulse">● LIVE</span>
+        </div>
+
+        <div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between border border-outline-variant/15">
+          <div class="flex flex-col">
+            <span id="sensor-1-label-ta" class="font-label-sm text-label-sm text-on-surface-variant ta-text">வெப்பநிலைமானி</span>
+            <span id="sensor-1-label-en" class="font-label-sm text-label-sm text-outline">Calorimeter Temp</span>
+          </div>
+          <span id="sidebar-sensor-temp" class="font-telemetry-display text-label-sm text-primary font-bold">298.15 K</span>
+        </div>
+
+        <div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between border border-outline-variant/15">
+          <div class="flex flex-col">
+            <span id="sensor-2-label-ta" class="font-label-sm text-label-sm text-on-surface-variant ta-text">pH அளவுமானி</span>
+            <span id="sensor-2-label-en" class="font-label-sm text-label-sm text-outline">pH Sensor Probe</span>
+          </div>
+          <span id="sidebar-sensor-primary" class="font-telemetry-display text-label-sm text-secondary font-bold">1.00 pH</span>
+        </div>
+
+        <div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between border border-outline-variant/15">
+          <div class="flex flex-col">
+            <span class="font-label-sm text-label-sm text-on-surface-variant ta-text">செயலில் உள்ள சோதனை</span>
+            <span class="font-label-sm text-label-sm text-outline">Active Bay</span>
+          </div>
+          <span id="sidebar-sensor-exp" class="font-telemetry-display text-label-sm text-tertiary-fixed-dim font-bold">EXP-04</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Safety Status Card -->
+    <div class="px-space-md flex flex-col gap-space-sm">
+      <button id="sidebar-safety-btn" type="button" class="w-full text-left bg-surface-container-low hover:bg-surface-container p-space-sm rounded-lg flex items-center gap-space-sm border border-outline-variant/15 transition-colors">
+        <span class="material-symbols-outlined text-primary-container text-base">shield_with_heart</span>
+        <div class="flex flex-col">
+          <span class="font-label-sm text-label-sm text-on-surface font-semibold"><span class="ta-text">பாதுகாப்பு உடை சரிபார்க்கப்பட்டது</span></span>
+          <span class="font-label-sm text-label-sm text-outline">Safety Goggles Active</span>
+        </div>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="lg:pl-64">
+    <main class="relative pt-16 bg-surface min-h-screen">
+      <div class="flex flex-col w-full text-on-surface">
+
+        <!-- ======================================================= -->
+        <!-- VIEW 1: DASHBOARD OVERVIEW (Default View)               -->
+        <!-- ======================================================= -->
+        <section id="view-dashboard" class="p-gutter sm:p-space-lg flex flex-col gap-space-lg">
+          <!-- Student Header & Real-time Metrics Card -->
+          <div class="relative overflow-hidden rounded-xl bg-surface-container-low shadow-xl p-space-md sm:p-space-lg border border-outline-variant/15">
+            <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 left-1/3 w-80 h-80 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-lg">
+              <!-- Left: Student identity & motivational header -->
+              <div class="flex flex-col gap-space-xs max-w-2xl">
+                <div class="flex flex-wrap items-center gap-space-xs">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-primary-fixed text-label-sm font-label-sm uppercase tracking-wider shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+                    <span class="ta-text">விஞ்ஞானி பயன்முறை • </span>Active Session
+                  </span>
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container/15 text-primary text-label-sm font-label-sm">
+                    <span class="material-symbols-outlined text-sm text-primary-container">verified</span>
+                    <span class="ta-text">பாதுகாப்பு சான்றிதழ் • </span>Safety Verified
+                  </span>
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-secondary text-label-sm font-label-sm">
+                    <span class="material-symbols-outlined text-sm text-secondary">local_fire_department</span>
+                    <span class="ta-text">தொடர் 5 நாட்கள் • </span>5-Day Streak
+                  </span>
+                </div>
+                <div class="mt-space-xs">
+                  <h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+                    <span class="ta-text">வணக்கம், மாயா லின்!</span>
+                    <span class="text-on-surface-variant font-headline-md text-headline-md block sm:inline sm:ml-2">Welcome, Maya Lin!</span>
+                  </h1>
+                  <p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+                    <span class="ta-text">வகுப்பு 8 (வயது 13) • </span>Grade 8 STEM Virtual Research Scholar<span class="ta-text"> • இளைய விஞ்ஞானி (Junior Scientist Awardee)</span>
+                  </p>
+                </div>
+              </div>
+              <!-- Right: Analytical Quick Stats Counter Blocks -->
+              <div class="grid grid-cols-3 gap-space-sm sm:gap-space-md">
+                <div class="flex flex-col bg-surface-container p-space-sm sm:p-space-md rounded-lg shadow-md min-w-[110px]">
+                  <div class="flex items-center justify-between text-outline">
+                    <span class="font-label-sm text-label-sm uppercase"><span class="ta-text">சோதனைகள்</span><span class="hidden">EXPS</span></span>
+                    <span class="material-symbols-outlined text-sm text-primary-fixed-dim">task_alt</span>
+                  </div>
+                  <div class="mt-1 flex items-baseline gap-1">
+                    <span id="stat-completed-count" class="font-telemetry-display text-telemetry-display text-primary">03</span>
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">/ 06</span>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-primary-fixed-dim">100% Core Done</span>
+                </div>
+                <div class="flex flex-col bg-surface-container p-space-sm sm:p-space-md rounded-lg shadow-md min-w-[110px]">
+                  <div class="flex items-center justify-between text-outline">
+                    <span class="font-label-sm text-label-sm uppercase"><span class="ta-text">மதிப்பெண்</span></span>
+                    <span class="material-symbols-outlined text-sm text-secondary">grade</span>
+                  </div>
+                  <div class="mt-1 flex items-baseline gap-1">
+                    <span class="font-telemetry-display text-telemetry-display text-secondary">96.3</span>
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">%</span>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-secondary-fixed">Grade A+ (Distinction)</span>
+                </div>
+                <div class="flex flex-col bg-surface-container p-space-sm sm:p-space-md rounded-lg shadow-md min-w-[110px]">
+                  <div class="flex items-center justify-between text-outline">
+                    <span class="font-label-sm text-label-sm uppercase"><span class="ta-text">ஆய்வக நேரம்</span></span>
+                    <span class="material-symbols-outlined text-sm text-tertiary-fixed-dim">timer</span>
+                  </div>
+                  <div class="mt-1 flex items-baseline gap-1">
+                    <span class="font-telemetry-display text-telemetry-display text-tertiary-container">4.3</span>
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">hrs</span>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-tertiary-fixed-dim">260 Mins Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Title: Core Science Simulators -->
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-space-xs">
+            <div>
+              <div class="flex items-center gap-space-xs text-primary-fixed-dim font-label-sm text-label-sm uppercase tracking-widest">
+                <span class="material-symbols-outlined text-sm">hub</span>
+                <span><span class="ta-text">முக்கிய அறிவியல் களங்கள் • </span>Core Disciplines</span>
+              </div>
+              <h2 class="font-headline-md text-headline-md text-on-surface"><span class="ta-text">பாடத் தேர்வுக் கூடம் • </span>Laboratory Subject Switcher</h2>
+            </div>
+            <div class="font-label-sm text-label-sm text-on-surface-variant">
+              <span class="ta-text">அனைத்து தொகுதிகளும் அளவீடு செய்யப்பட்டன • </span>Calibrated Virtual Engines Active
+            </div>
+          </div>
+
+          <!-- Triple Primary Subject Cards Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+            <!-- CARD 1: CHEMISTRY -->
+            <div class="group relative flex flex-col justify-between rounded-xl bg-surface-container-low shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:bg-surface-container border border-outline-variant/15">
+              <div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Chemistry Virtual Workbench" onerror="this.src='https://placehold.co/600x400/0a0e16/00f2fe?text=Chemistry+Titration+Lab'" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyVvHcqBBlrrJhtq59zZ_MqY4VVtjViqbXJCIbqnwHr_ygBLPUVXNVpoqUyTWx-OVN1b8NHrga5c5yosXCrVn8NKMXVSt_mHPXUgJxtidfMWFOtVHC24B6Mc1bTGYL3KvzFNOPYhaL02TYrXMpKMGO19EXRgYVYF1MeLEEOqUKV_VcC2SRmR2UQyJ2rMGF0dY1atMxECQpPTNUa_ZA7RlyLgMW6O-6fc_aK6FMheE">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-lowest/60 to-transparent"></div>
+                <div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary-fixed-dim font-label-sm text-label-sm flex items-center gap-1 shadow-md">
+                    <span class="material-symbols-outlined text-xs text-primary-container">science</span>
+                    <span class="ta-text">வேதியியல் • </span>CHEMISTRY
+                  </span>
+                  <span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-fixed font-label-sm text-label-sm font-bold shadow-md">
+                    <span class="ta-text">நிறைவுற்றது • </span>95/100
+                  </span>
+                </div>
+                <div class="absolute bottom-space-xs left-space-md right-space-md flex items-end justify-between">
+                  <div class="flex items-center gap-space-xs">
+                    <div class="w-8 h-8 rounded-lg bg-primary-container/20 backdrop-blur-md flex items-center justify-center text-primary-container shadow-inner">
+                      <span class="material-symbols-outlined text-lg">science</span>
+                    </div>
+                    <div>
+                      <span class="font-label-sm text-label-sm text-outline ta-text">அமில-கார ஆய்வு</span>
+                      <p class="font-headline-sm text-headline-sm text-primary leading-none">Exp 04: Titration</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <span class="font-label-sm text-label-sm text-outline">Equivalence Point</span>
+                    <p class="font-telemetry-display text-label-lg text-primary font-bold">pH 7.02</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                <div class="flex flex-col gap-space-sm">
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                    <span class="ta-text">அமில-கார நடுநிலையாக்கல்</span>
+                    <span class="text-on-surface-variant font-body-sm text-body-sm block">Acid-Base Titration &amp; Calorimetry</span>
+                  </h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    ஹைட்ரோகுளோரிக் அமிலம் (HCl) மற்றும் சோடியம் ஹைட்ராக்சைடு (NaOH) வினை. பினோல்ப்தலீன் நிறங்காட்டியின் இளஞ்சிவப்பு நிற மாற்றம் மற்றும் வெப்ப உமிழ்வினை ஆய்வு.
+                  </p>
+                  <div class="flex flex-wrap gap-1.5 pt-1">
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">pH அளவுகோல்</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">பியூரெட் வாசிப்பு</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">கலோரிமீட்டர் (ΔH)</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-primary-fixed-dim font-label-sm text-label-sm">Phenolphthalein</span>
+                  </div>
+                  <div class="bg-surface-container-lowest p-space-xs rounded-lg flex items-center justify-between text-outline">
+                    <div class="flex items-center gap-1.5 pl-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                      <span id="card-chem-log-count" class="font-label-sm text-label-sm text-on-surface-variant">8 சோதனைப் புள்ளிகள் பதிவு</span>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-primary-fixed">ΔT = +6.4°C</span>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+                  <button data-action="open-log" data-exp="chem" class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors" type="button">
+                    <span class="material-symbols-outlined text-sm">edit_note</span>
+                    <span><span class="ta-text">குறிப்பேடு • </span>Log</span>
+                  </button>
+                  <button data-action="launch-sim" data-exp="chem" class="w-full py-2 px-3 rounded-lg bg-primary-container hover:opacity-95 text-on-primary-fixed font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 shadow-[0_0_12px_rgba(0,242,254,0.35)] transition-all" type="button">
+                    <span class="material-symbols-outlined text-sm">play_arrow</span>
+                    <span><span class="ta-text">ஆய்வகம் • </span>Launch</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 2: PHYSICS -->
+            <div class="group relative flex flex-col justify-between rounded-xl bg-surface-container-low shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:bg-surface-container border border-outline-variant/15">
+              <div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Physics Simple Pendulum Lab" onerror="this.src='https://placehold.co/600x400/0a0e16/c9bfff?text=Physics+Pendulum+Lab'" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlOeXsXFb7LUWqHJxO-CLr8sSMplzmg9W656t9J7AboAr-n-RDUTEsqB8SzeUk4stZUrD3P-BYCtteSQKowmUkpCusvUb8pqXSkcW7bZbk6rlgQOvluFtnwTbyu1CML1SvbKMdytfJlR-skqEMGDnw-lHUC5GEJdkC0_0-5BEyUjo3G7wuvOLeY2QMev7VWhVj8FKZzIuf26X7rs3oBdQRP7DIQ9W4y5YJus33ki8">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-lowest/60 to-transparent"></div>
+                <div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-secondary font-label-sm text-label-sm flex items-center gap-1 shadow-md">
+                    <span class="material-symbols-outlined text-xs text-secondary">architecture</span>
+                    <span class="ta-text">இயற்பியல் • </span>PHYSICS
+                  </span>
+                  <span class="px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold shadow-md">
+                    <span class="ta-text">நிறைவுற்றது • </span>98/100
+                  </span>
+                </div>
+                <div class="absolute bottom-space-xs left-space-md right-space-md flex items-end justify-between">
+                  <div class="flex items-center gap-space-xs">
+                    <div class="w-8 h-8 rounded-lg bg-secondary-container/50 backdrop-blur-md flex items-center justify-center text-secondary shadow-inner">
+                      <span class="material-symbols-outlined text-lg">motion_mode</span>
+                    </div>
+                    <div>
+                      <span class="font-label-sm text-label-sm text-outline ta-text">புவியீர்ப்பு முடுக்கம்</span>
+                      <p class="font-headline-sm text-headline-sm text-secondary-fixed leading-none">Exp 02: Gravity (g)</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <span class="font-label-sm text-label-sm text-outline">Calculated Constant</span>
+                    <p class="font-telemetry-display text-label-lg text-secondary font-bold">9.81 m/s²</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                <div class="flex flex-col gap-space-sm">
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                    <span class="ta-text">தனி ஊசல் இயக்கம் &amp; முடுக்கம்</span>
+                    <span class="text-on-surface-variant font-body-sm text-body-sm block">Simple Pendulum &amp; Gravitational Field</span>
+                  </h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    கயிற்றின் நீள மாற்றமும் அலைவுக்காலமும் (T² vs L). ஒளிக்கற்றை சென்சார் (Photogate) நேரக் கணிப்பு மற்றும் பிழை சதவீதம் (0.10% Error).
+                  </p>
+                  <div class="flex flex-wrap gap-1.5 pt-1">
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">அலைவுக்காலம் (T)</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">T² vs L வரைபடம்</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">R² = 0.9998</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm">g = 4π²(L/T²)</span>
+                  </div>
+                  <div class="bg-surface-container-lowest p-space-xs rounded-lg flex items-center justify-between text-outline">
+                    <div class="flex items-center gap-1.5 pl-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                      <span id="card-phys-log-count" class="font-label-sm text-label-sm text-on-surface-variant">5 சோதனைகள் சரிபார்க்கப்பட்டன</span>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-secondary">Err: 0.10% Only</span>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+                  <button data-action="open-log" data-exp="phys" class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors" type="button">
+                    <span class="material-symbols-outlined text-sm">edit_note</span>
+                    <span><span class="ta-text">குறிப்பேடு • </span>Log</span>
+                  </button>
+                  <button data-action="launch-sim" data-exp="phys" class="w-full py-2 px-3 rounded-lg bg-secondary hover:opacity-95 text-on-secondary font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 shadow-[0_0_12px_rgba(201,191,255,0.35)] transition-all" type="button">
+                    <span class="material-symbols-outlined text-sm">play_arrow</span>
+                    <span><span class="ta-text">ஆய்வகம் • </span>Launch</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 3: BIOLOGY -->
+            <div class="group relative flex flex-col justify-between rounded-xl bg-surface-container-low shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:bg-surface-container border border-outline-variant/15">
+              <div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Biology Hydrilla Lab" onerror="this.src='https://placehold.co/600x400/0a0e16/b2e1ff?text=Biology+Hydrilla+O2+Lab'" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdKmoazE3iR7XDQKhHciE7zPcPPv19rL15QYkiRgb80VesdKJm2dkXIavMgDETMwC0Qu7zx1cUAVh3T9COnbokEqirx1CyO1-Jo8e4Jpb67L2fgUEp3dL7EKeTOoQmsvV4-1m89_TWQBkAUFKa8Tjs9cy90STAVVXEMSIh7x7E-z8T6xrV1rE75L852zwyb9uXILVbrqeqsmyIN4aSel62n_vmoAmukoojrh_h4yA">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-lowest/60 to-transparent"></div>
+                <div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+                  <span class="px-2.5 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-tertiary font-label-sm text-label-sm flex items-center gap-1 shadow-md">
+                    <span class="material-symbols-outlined text-xs text-primary-container">biotech</span>
+                    <span class="ta-text">உயிரியல் • </span>BIOLOGY
+                  </span>
+                  <span class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-bold shadow-md">
+                    <span class="ta-text">நிறைவுற்றது • </span>96/100
+                  </span>
+                </div>
+                <div class="absolute bottom-space-xs left-space-md right-space-md flex items-end justify-between">
+                  <div class="flex items-center gap-space-xs">
+                    <div class="w-8 h-8 rounded-lg bg-tertiary-container/30 backdrop-blur-md flex items-center justify-center text-primary-container shadow-inner">
+                      <span class="material-symbols-outlined text-lg">eco</span>
+                    </div>
+                    <div>
+                      <span class="font-label-sm text-label-sm text-outline ta-text">ஒளிச்சேர்க்கை வீதம்</span>
+                      <p class="font-headline-sm text-headline-sm text-tertiary leading-none">Exp 03: Hydrilla O₂</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <span class="font-label-sm text-label-sm text-outline">Peak Bubble Rate</span>
+                    <p class="font-telemetry-display text-label-lg text-primary-fixed-dim font-bold">47 bub/min</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                <div class="flex flex-col gap-space-sm">
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                    <span class="ta-text">ஒளிச்சேர்க்கை &amp; ஒளிச்செறிவு</span>
+                    <span class="text-on-surface-variant font-body-sm text-body-sm block">Photosynthesis Rate vs Light Intensity (1/d²)</span>
+                  </h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    ஹைட்ரில்லா செடியில் இருந்து வெளிப்படும் ஆக்ஸிஜன் குமிழ்கள் எண்ணிக்கை கணக்கீடு. ஒளி மூல தூரமும் (d) எதிர் இருமடி விதியும் ஆய்வு செய்யப்பட்டது.
+                  </p>
+                  <div class="flex flex-wrap gap-1.5 pt-1">
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">குமிழ்கள் (O₂)</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">எதிர் இருமடி (1/d²)</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">குளோரோபில் நிறமி</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-primary-fixed-dim font-label-sm text-label-sm">Glowing Splint Test</span>
+                  </div>
+                  <div class="bg-surface-container-lowest p-space-xs rounded-lg flex items-center justify-between text-outline">
+                    <div class="flex items-center gap-1.5 pl-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                      <span id="card-bio-log-count" class="font-label-sm text-label-sm text-on-surface-variant">5 தூர நிலைகள் சோதனை</span>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-tertiary-fixed-dim">O₂ gas verified</span>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+                  <button data-action="open-log" data-exp="bio" class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors" type="button">
+                    <span class="material-symbols-outlined text-sm">edit_note</span>
+                    <span><span class="ta-text">குறிப்பேடு • </span>Log</span>
+                  </button>
+                  <button data-action="launch-sim" data-exp="bio" class="w-full py-2 px-3 rounded-lg bg-tertiary-container hover:opacity-95 text-on-tertiary-container font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 shadow-[0_0_12px_rgba(178,225,255,0.35)] transition-all" type="button">
+                    <span class="material-symbols-outlined text-sm">play_arrow</span>
+                    <span><span class="ta-text">ஆய்வகம் • </span>Launch</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Middle Bento Row: Laboratory Analytics & Teacher Feedback Hub -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+            <!-- Student Mastery Radar & Skills Matrix (7 Cols) -->
+            <div class="lg:col-span-7 flex flex-col justify-between rounded-xl bg-surface-container-low p-space-md sm:p-space-lg shadow-xl border border-outline-variant/15">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+                <div>
+                  <span class="text-primary-fixed-dim font-label-sm text-label-sm uppercase"><span class="ta-text">ஆய்வகத் திறன் அளவீடுகள் • </span>Skill Masteries</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface"><span class="ta-text">விஞ்ஞான அணுகுமுறை வளர்ச்சி • </span>Scientific Competency</h3>
+                </div>
+                <button id="btn-export-portfolio" class="self-start sm:self-auto px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary-fixed font-label-sm text-label-sm flex items-center gap-1 transition-colors border border-outline-variant/30" type="button">
+                  <span class="material-symbols-outlined text-sm">download</span>
+                  <span><span class="ta-text">அனைத்து குறிப்பேடுகள் • </span>Export Portfolio (PDF)</span>
+                </button>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md my-auto">
+                <!-- Skill 1 -->
+                <div class="flex flex-col bg-surface-container p-space-md rounded-lg shadow-sm">
+                  <div class="flex items-center justify-between text-outline mb-1">
+                    <span class="font-label-sm text-label-sm ta-text">கருதுகோள் உருவாக்கம்</span>
+                    <span class="font-telemetry-display text-label-md text-primary font-bold">98%</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface font-semibold mb-2">Hypothesis Formulation</p>
+                  <div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+                    <div class="bg-primary-container h-full rounded-full" style="width: 98%;"></div>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-primary-fixed-dim mt-2">Level 4: Advanced</span>
+                </div>
+                <!-- Skill 2 -->
+                <div class="flex flex-col bg-surface-container p-space-md rounded-lg shadow-sm">
+                  <div class="flex items-center justify-between text-outline mb-1">
+                    <span class="font-label-sm text-label-sm ta-text">தரவு சேகரிப்பு &amp; பதிவு</span>
+                    <span class="font-telemetry-display text-label-md text-secondary font-bold">95%</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface font-semibold mb-2">Scientific Data Logging</p>
+                  <div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+                    <div class="bg-secondary h-full rounded-full" style="width: 95%;"></div>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-secondary-fixed mt-2">Level 4: Advanced</span>
+                </div>
+                <!-- Skill 3 -->
+                <div class="flex flex-col bg-surface-container p-space-md rounded-lg shadow-sm">
+                  <div class="flex items-center justify-between text-outline mb-1">
+                    <span class="font-label-sm text-label-sm ta-text">கணித வரைபட சரிபார்ப்பு</span>
+                    <span class="font-telemetry-display text-label-md text-tertiary-fixed-dim font-bold">96%</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface font-semibold mb-2">Mathematical Modeling</p>
+                  <div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+                    <div class="bg-tertiary-container h-full rounded-full" style="width: 96%;"></div>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-tertiary-fixed-dim mt-2">Level 4: Advanced</span>
+                </div>
+              </div>
+              <div class="mt-space-md pt-space-sm flex flex-wrap items-center justify-between gap-space-xs text-outline font-label-sm text-label-sm bg-surface-container-lowest px-space-md py-space-sm rounded-lg">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary-container text-base">auto_graph</span>
+                  <span id="dashboard-total-points-label"><span class="ta-text">தரவுப் புள்ளிகள்: 18 பதிவுகள் </span>(18 Data Points Logged)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary text-base">functions</span>
+                  <span><span class="ta-text">R² சராசரி: </span>0.9984 (High Linear Fidelity)</span>
+                </div>
+                <span class="text-primary-fixed-dim"><span class="ta-text">அனைத்து சோதனைகளும் அங்கீகரிக்கப்பட்டன </span>✅</span>
+              </div>
+            </div>
+
+            <!-- Live Teacher Feedback & Verification Log (5 Cols) -->
+            <div class="lg:col-span-5 flex flex-col justify-between rounded-xl bg-surface-container-low p-space-md sm:p-space-lg shadow-xl border border-outline-variant/15">
+              <div class="flex items-center justify-between mb-space-sm">
+                <div>
+                  <span class="text-secondary font-label-sm text-label-sm uppercase"><span class="ta-text">ஆசிரியர் வழிகாட்டல் • </span>Mentors</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface"><span class="ta-text">ஆய்வு மதிப்பீடுகள் • </span>Reviews</h3>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm"><span class="ta-text">2 புது கருத்துகள் • </span>2 Verified</span>
+              </div>
+              <div class="flex flex-col gap-space-sm my-auto">
+                <div class="flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <div class="w-6 h-6 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container font-bold text-xs">A</div>
+                      <span class="font-label-md text-label-md text-on-surface font-semibold"><span class="ta-text">டாக்டர் அருண் குமார் </span>(Dr. Arun Kumar)</span>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-outline"><span class="ta-text">நேற்று • </span>1d ago</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant pl-8">
+                    "அமில-கார டைட்ரேஷன் இறுதி நிலை (pH 7.02) மிக துல்லியமாக பெறப்பட்டுள்ளது! கலோரிமீட்டர் வெப்ப உமிழ்வு கணக்கீடும் அருமை."
+                  </p>
+                  <div class="pl-8 flex items-center gap-2">
+                    <span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary-fixed-dim font-label-sm text-label-sm">Chemistry Exp 04</span>
+                    <span class="font-label-sm text-label-sm text-secondary font-bold">95/100 (A+)</span>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <div class="w-6 h-6 rounded-full bg-secondary-container/50 flex items-center justify-center text-secondary font-bold text-xs">S</div>
+                      <span class="font-label-md text-label-md text-on-surface font-semibold"><span class="ta-text">டாக்டர் சுமதி ராஜன் </span>(Dr. Sumathi Rajan)</span>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-outline"><span class="ta-text">2 நாட்களுக்கு முன் • </span>2d ago</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant pl-8">
+                    "தனி ஊசல் வரைபடத்தில் (T² vs L) சாய்வு மதிப்பு (Slope) மற்றும் 0.10% பிழை மட்டுமே இருப்பது உயர்தர ஆய்வக திறனை காட்டுகிறது."
+                  </p>
+                  <div class="pl-8 flex items-center gap-2">
+                    <span class="px-1.5 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">Physics Exp 02</span>
+                    <span class="font-label-sm text-label-sm text-secondary font-bold">98/100 (A+)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-space-xs mt-space-sm flex items-center justify-between text-outline font-label-sm text-label-sm">
+                <span><span class="ta-text">விஞ்ஞான ஆசான் சான்றொப்பம்: சரிபார்க்கப்பட்டது • </span>Faculty Signed</span>
+                <span class="material-symbols-outlined text-sm text-primary-container">verified_user</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Section: Up Next / Unlocked Experiments Preview -->
+          <div class="flex flex-col gap-space-md">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="flex items-center gap-1.5 text-outline font-label-sm text-label-sm uppercase tracking-wider">
+                  <span class="material-symbols-outlined text-sm text-primary-container">upcoming</span>
+                  <span><span class="ta-text">அடுத்த கட்ட சோதனைகள் • </span>Up Next &amp; Advanced Simulations</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface"><span class="ta-text">திறக்கப்படவுள்ள புதிய சோதனைகள் </span>(Grade 8-9 Sandbox Preview)</h3>
+              </div>
+              <span class="hidden sm:inline-block font-label-sm text-label-sm text-on-surface-variant"><span class="ta-text">வகுப்புத் திட்டம் • </span>Click any card to preview syllabus</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+              <!-- Upcoming 1: Physics Projectile -->
+              <button type="button" data-upcoming="exp05" class="text-left flex items-center justify-between p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md border border-outline-variant/15 group">
+                <div class="flex items-center gap-space-md">
+                  <div class="w-12 h-12 rounded-lg bg-surface-container-high group-hover:bg-primary-container/20 flex items-center justify-center text-outline group-hover:text-primary-fixed transition-colors">
+                    <span class="material-symbols-outlined text-2xl">sports_baseball</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-label-sm text-label-sm"><span class="ta-text">இயற்பியல் • </span>PHY</span>
+                      <span class="text-outline font-label-sm text-label-sm"><span class="ta-text">நிலை 2 • </span>Level 2</span>
+                    </div>
+                    <h4 class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5 ta-text">எறிபொருள் இயக்கம் &amp; பாதை</h4>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Projectile Trajectory &amp; Angle θ</span>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end gap-1">
+                  <span class="material-symbols-outlined text-outline group-hover:text-primary-fixed text-lg">lock_open_right</span>
+                  <span class="font-label-sm text-label-sm text-outline">Exp 05</span>
+                </div>
+              </button>
+
+              <!-- Upcoming 2: Chemistry Reaction Kinetics -->
+              <button type="button" data-upcoming="exp06" class="text-left flex items-center justify-between p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md border border-outline-variant/15 group">
+                <div class="flex items-center gap-space-md">
+                  <div class="w-12 h-12 rounded-lg bg-surface-container-high group-hover:bg-secondary/20 flex items-center justify-center text-outline group-hover:text-secondary transition-colors">
+                    <span class="material-symbols-outlined text-2xl">hourglass_top</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-label-sm text-label-sm"><span class="ta-text">வேதியியல் • </span>CHEM</span>
+                      <span class="text-primary-fixed-dim font-label-sm text-label-sm"><span class="ta-text">விரைவில் • </span>Soon</span>
+                    </div>
+                    <h4 class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5 ta-text">எதிர்வினை வேகம் &amp; வினையூக்கி</h4>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Reaction Kinetics &amp; Catalysis</span>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end gap-1">
+                  <span class="material-symbols-outlined text-outline group-hover:text-secondary text-lg">lock_open_right</span>
+                  <span class="font-label-sm text-label-sm text-outline">Exp 06</span>
+                </div>
+              </button>
+
+              <!-- Upcoming 3: Biology Onion Epidermal Cell -->
+              <button type="button" data-upcoming="exp07" class="text-left flex items-center justify-between p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md border border-outline-variant/15 group">
+                <div class="flex items-center gap-space-md">
+                  <div class="w-12 h-12 rounded-lg bg-surface-container-high group-hover:bg-tertiary-container/20 flex items-center justify-center text-outline group-hover:text-tertiary-fixed-dim transition-colors">
+                    <span class="material-symbols-outlined text-2xl">microbiology</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-label-sm text-label-sm"><span class="ta-text">உயிரியல் • </span>BIO</span>
+                      <span class="text-tertiary-fixed-dim font-label-sm text-label-sm"><span class="ta-text">தயாராகிறது • </span>Preview</span>
+                    </div>
+                    <h4 class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5 ta-text">வெங்காயத் தோல் செல் சாயம்</h4>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Onion Epidermal Cell Staining</span>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end gap-1">
+                  <span class="material-symbols-outlined text-outline group-hover:text-tertiary-fixed-dim text-lg">lock_open_right</span>
+                  <span class="font-label-sm text-label-sm text-outline">Exp 07</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Footer Banner -->
+          <div class="rounded-xl bg-surface-container-lowest p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md text-outline font-label-sm text-label-sm shadow-inner">
+            <div class="flex flex-wrap items-center gap-space-md">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                <span>QuantumLab V2.4 Multi-Disciplinary Virtual Simulation Engine</span>
+              </div>
+              <span class="text-outline-variant">|</span>
+              <span><span class="ta-text">பாடத்திட்டம்: தமிழ்நாடு அரசு &amp; </span>NCERT STEM Curriculum Aligned</span>
+            </div>
+            <div class="flex items-center gap-space-md text-on-surface-variant">
+              <span><span class="ta-text">அனைத்து சென்சார்களும் 298.15K-ல் அளவீடு செய்யப்பட்டன • </span>Sensors Calibrated</span>
+              <span class="material-symbols-outlined text-base text-primary-container">check_circle</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================= -->
+        <!-- VIEW 2: INTERACTIVE WORKBENCH (3 Live Simulators)       -->
+        <!-- ======================================================= -->
+        <section id="view-interactive-workbench" class="hidden p-gutter sm:p-space-lg flex-col gap-space-lg">
+          <!-- Top Bar: Simulator Selector Pills & Quick Nav -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-low p-space-md rounded-xl border border-outline-variant/15">
+            <div>
+              <div class="flex items-center gap-2 text-primary-fixed-dim font-label-sm text-label-sm uppercase">
+                <span class="material-symbols-outlined text-sm">tune</span>
+                <span><span class="ta-text">செயல்முறை ஆய்வக மேடை • </span>Interactive Virtual Workbench</span>
+              </div>
+              <h2 id="workbench-active-heading" class="font-headline-md text-headline-md text-on-surface mt-0.5">
+                சோதனை 04: அமில-கார நடுநிலையாக்கல் (Acid-Base Titration)
+              </h2>
+            </div>
+            <!-- Experiment Switcher Tabs inside Workbench -->
+            <div class="flex flex-wrap items-center gap-1.5 bg-surface-container-lowest p-1.5 rounded-lg border border-outline-variant/20">
+              <button type="button" data-exp-select="chem" class="wb-exp-tab px-3 py-1.5 rounded-md font-label-sm text-label-sm bg-primary-container text-on-primary-fixed font-bold transition-all flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">science</span>
+                <span><span class="ta-text">வேதியியல் • </span>Exp 04</span>
+              </button>
+              <button type="button" data-exp-select="phys" class="wb-exp-tab px-3 py-1.5 rounded-md font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">motion_mode</span>
+                <span><span class="ta-text">இயற்பியல் • </span>Exp 02</span>
+              </button>
+              <button type="button" data-exp-select="bio" class="wb-exp-tab px-3 py-1.5 rounded-md font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">biotech</span>
+                <span><span class="ta-text">உயிரியல் • </span>Exp 03</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- --------------------------------------------------- -->
+          <!-- SIMULATOR A: CHEMISTRY ACID-BASE TITRATION (EXP 04) -->
+          <!-- --------------------------------------------------- -->
+          <div id="sim-bay-chem" class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+            <!-- Left 7 Cols: Visual Apparatus & Live Burette Canvas -->
+            <div class="lg:col-span-7 bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col justify-between relative overflow-hidden">
+              <div class="flex flex-wrap items-center justify-between gap-2 z-10">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-1 rounded-full bg-primary-container/15 text-primary-fixed font-label-sm text-label-sm">
+                    Titrant: 0.10 M NaOH
+                  </span>
+                  <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                    Analyte: 25.0 mL of 0.10 M HCl
+                  </span>
+                </div>
+                <span id="chem-endpoint-badge" class="px-2.5 py-1 rounded-full bg-surface-container text-outline font-label-sm text-label-sm">
+                  அமில ஊடகம் • Acidic Phase (Colorless)
+                </span>
+              </div>
+
+              <!-- Apparatus Visual Stage -->
+              <div class="my-4 relative h-[380px] w-full bg-surface-container-lowest rounded-xl border border-outline-variant/20 flex items-center justify-center overflow-hidden">
+                <!-- Subtle Grid Background -->
+                <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(#00f2fe 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+                <!-- Retort Stand & Burette Assembly -->
+                <div class="relative w-72 h-full flex flex-col items-center justify-between py-4 select-none">
+                  <!-- Retort Stand Pillar -->
+                  <div class="absolute left-8 top-4 bottom-4 w-2 bg-surface-container-highest rounded-full"></div>
+                  <div class="absolute left-6 bottom-3 w-52 h-3 bg-surface-container-highest rounded"></div>
+                  <!-- Clamp Arm -->
+                  <div class="absolute left-8 top-24 w-28 h-1.5 bg-outline-variant"></div>
+
+                  <!-- Burette Cylinder -->
+                  <div class="relative z-10 w-10 h-44 rounded-t border-2 border-primary-fixed/50 bg-surface-container/60 backdrop-blur-sm overflow-hidden flex flex-col justify-end">
+                    <!-- Burette Liquid Level -->
+                    <div id="chem-burette-liquid" class="w-full bg-cyan-400/35 border-t-2 border-primary-container transition-all duration-300" style="height: 100%;"></div>
+                    <!-- Burette Graduation Marks -->
+                    <div class="absolute inset-y-2 right-0 w-3 flex flex-col justify-between pointer-events-none">
+                      <span class="border-b border-primary-fixed/60 w-full text-[7px] text-primary-fixed leading-none">0</span>
+                      <span class="border-b border-primary-fixed/40 w-2"></span>
+                      <span class="border-b border-primary-fixed/60 w-full text-[7px] text-primary-fixed leading-none">10</span>
+                      <span class="border-b border-primary-fixed/40 w-2"></span>
+                      <span class="border-b border-primary-fixed/60 w-full text-[7px] text-primary-fixed leading-none">20</span>
+                      <span class="border-b border-primary-fixed/40 w-2"></span>
+                      <span class="border-b border-primary-fixed/60 w-full text-[7px] text-primary-fixed leading-none">30</span>
+                      <span class="border-b border-primary-fixed/40 w-2"></span>
+                      <span class="border-b border-primary-fixed/60 w-full text-[7px] text-primary-fixed leading-none">40</span>
+                      <span class="border-b border-primary-fixed/60 w-full text-[7px] text-primary-fixed leading-none">50</span>
+                    </div>
+                  </div>
+
+                  <!-- Stopcock Valve -->
+                  <div class="relative z-10 flex items-center justify-center -mt-1">
+                    <div id="chem-stopcock-handle" class="w-8 h-2.5 rounded bg-primary-container shadow-[0_0_8px_#00f2fe] transition-transform duration-200"></div>
+                  </div>
+                  <!-- Burette Tip -->
+                  <div class="w-1.5 h-4 bg-primary-fixed/60 rounded-b"></div>
+
+                  <!-- Animated Falling Drop -->
+                  <div id="chem-falling-drop" class="w-2.5 h-3.5 rounded-full bg-primary-container opacity-0 pointer-events-none shadow-[0_0_8px_#00f2fe]"></div>
+
+                  <!-- Erlenmeyer Conical Flask (SVG) -->
+                  <div class="relative z-10 w-36 h-32 -mt-2 flex flex-col items-center justify-end">
+                    <svg viewBox="0 0 140 125" class="w-full h-full overflow-visible">
+                      <defs>
+                        <clipPath id="flask-clip">
+                          <path d="M52,5 L88,5 L88,38 L128,110 Q133,120 120,120 L20,120 Q7,120 12,110 L52,38 Z"/>
+                        </clipPath>
+                      </defs>
+                      <!-- Solution Inside Flask -->
+                      <g clip-path="url(#flask-clip)">
+                        <rect id="chem-flask-liquid" x="0" y="62" width="140" height="65" fill="rgba(200, 245, 255, 0.22)" class="transition-all duration-300"/>
+                        <!-- Surface Meniscus Glow -->
+                        <ellipse id="chem-flask-meniscus" cx="70" cy="62" rx="45" ry="4" fill="rgba(255, 255, 255, 0.35)" class="transition-all duration-300"/>
+                      </g>
+                      <!-- Digital Probe & Thermometer dipped in flask -->
+                      <line x1="60" y1="-12" x2="45" y2="105" stroke="#c9bfff" stroke-width="3" stroke-linecap="round"/>
+                      <circle cx="45" cy="105" r="4" fill="#00f2fe"/>
+                      <line x1="82" y1="-12" x2="95" y2="105" stroke="#ffb4ab" stroke-width="2.5" stroke-linecap="round"/>
+                      <circle cx="95" cy="105" r="3.5" fill="#ff5449"/>
+                      <!-- Flask Glass Outline -->
+                      <path d="M48,5 L92,5 M52,5 L52,38 L12,110 Q7,120 20,120 L120,120 Q133,120 128,110 L88,38 L88,5" fill="none" stroke="#6ff6ff" stroke-width="2.5" stroke-opacity="0.7"/>
+                    </svg>
+                    <!-- Magnetic Stir Bar -->
+                    <div id="chem-stir-bar" class="absolute bottom-3.5 left-1/2 -translate-x-1/2 w-7 h-2 rounded-full bg-white shadow stir-spin"></div>
+                  </div>
+
+                  <!-- Magnetic Stirrer Hotplate Base -->
+                  <div class="w-40 h-5 bg-surface-container-high border border-outline-variant/50 rounded-t-lg flex items-center justify-between px-3">
+                    <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                    <span class="font-label-sm text-[9px] text-on-surface-variant">MAG-STIR 400 RPM</span>
+                  </div>
+                </div>
+
+                <!-- Floating Telemetry Readout Overlay inside Stage -->
+                <div class="absolute top-3 right-3 bg-surface-container-low/90 backdrop-blur-md p-3 rounded-xl border border-outline-variant/30 flex flex-col gap-2 w-44">
+                  <div>
+                    <span class="font-label-sm text-[10px] text-outline uppercase">NaOH Added (V)</span>
+                    <div id="chem-readout-vol" class="font-telemetry-display text-xl text-primary font-bold">0.00 mL</div>
+                  </div>
+                  <div class="border-t border-outline-variant/20 pt-1.5">
+                    <span class="font-label-sm text-[10px] text-outline uppercase">pH Electrode</span>
+                    <div id="chem-readout-ph" class="font-telemetry-display text-xl text-secondary font-bold">1.00 pH</div>
+                  </div>
+                  <div class="border-t border-outline-variant/20 pt-1.5">
+                    <span class="font-label-sm text-[10px] text-outline uppercase">Calorimeter Temp</span>
+                    <div id="chem-readout-temp" class="font-telemetry-display text-lg text-tertiary-fixed-dim font-bold">25.00 °C</div>
+                    <span id="chem-readout-kelvin" class="font-label-sm text-[10px] text-outline">298.15 K (ΔT +0.00°C)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Status Strip -->
+              <div class="flex flex-wrap items-center justify-between gap-2 text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-space-md py-2 rounded-lg">
+                <span>வினை: HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l) + வெப்பம் (ΔH = -57.3 kJ/mol)</span>
+                <span id="chem-moles-status" class="text-primary-fixed">Equivalence at 25.00 mL</span>
+              </div>
+            </div>
+
+            <!-- Right 5 Cols: Burette Controls, Real-time Mini-Curve & Data Logger -->
+            <div class="lg:col-span-5 flex flex-col justify-between gap-space-md">
+              <!-- Control Deck -->
+              <div class="bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col gap-space-md">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="font-label-sm text-label-sm text-primary-fixed-dim uppercase"><span class="ta-text">பியூரெட் கட்டுப்பாடு • </span>Burette Dispenser</span>
+                    <h3 class="font-headline-sm text-headline-sm text-on-surface"><span class="ta-text">சோடியம் ஹைட்ராக்சைடு சேர்க்க • </span>Add 0.1M NaOH</h3>
+                  </div>
+                  <select id="chem-indicator-select" class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2.5 py-1.5 rounded-lg border border-outline-variant/30 focus:outline-none">
+                    <option value="phenolphthalein">Phenolphthalein (பினோல்ப்தலீன்)</option>
+                    <option value="methylorange">Methyl Orange (மெத்தில் ஆரஞ்சு)</option>
+                    <option value="bromothymol">Bromothymol Blue (புரோமோதையமால்)</option>
+                  </select>
+                </div>
+
+                <!-- Precision Titration Buttons -->
+                <div class="grid grid-cols-3 gap-2">
+                  <button type="button" data-titrate="0.1" class="py-2.5 px-3 rounded-lg bg-surface-container-high hover:bg-primary-container hover:text-on-primary-fixed text-on-surface font-label-md text-label-md font-bold transition-all flex flex-col items-center">
+                    <span>+0.10 mL</span>
+                    <span class="text-[10px] opacity-75">1 சொட்டு / Drop</span>
+                  </button>
+                  <button type="button" data-titrate="1.0" class="py-2.5 px-3 rounded-lg bg-surface-container-high hover:bg-primary-container hover:text-on-primary-fixed text-on-surface font-label-md text-label-md font-bold transition-all flex flex-col items-center">
+                    <span>+1.00 mL</span>
+                    <span class="text-[10px] opacity-75">மெதுவாக / Slow</span>
+                  </button>
+                  <button type="button" data-titrate="5.0" class="py-2.5 px-3 rounded-lg bg-surface-container-high hover:bg-primary-container hover:text-on-primary-fixed text-on-surface font-label-md text-label-md font-bold transition-all flex flex-col items-center">
+                    <span>+5.00 mL</span>
+                    <span class="text-[10px] opacity-75">வேகமாக / Fast</span>
+                  </button>
+                </div>
+
+                <!-- Fine Slider & Auto-Drip Toggle -->
+                <div class="flex flex-col gap-1.5 bg-surface-container p-space-sm rounded-lg">
+                  <div class="flex items-center justify-between font-label-sm text-label-sm">
+                    <span class="text-on-surface-variant"><span class="ta-text">நேரடி அளவு மாற்றி • </span>Direct Burette Volume</span>
+                    <span id="chem-slider-label" class="text-primary-fixed font-bold">0.00 / 50.00 mL</span>
+                  </div>
+                  <input id="chem-vol-slider" type="range" min="0" max="50" step="0.1" value="0" class="w-full accent-cyan-400 cursor-pointer">
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                  <button id="chem-auto-drip-btn" type="button" class="py-2 px-3 rounded-lg bg-secondary-container/50 hover:bg-secondary hover:text-on-secondary text-secondary-fixed font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-all">
+                    <span class="material-symbols-outlined text-sm">water_drop</span>
+                    <span id="chem-auto-drip-text">Auto-Titrate (தொடர் சொட்டு)</span>
+                  </button>
+                  <button id="chem-reset-btn" type="button" class="py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all">
+                    <span class="material-symbols-outlined text-sm">restart_alt</span>
+                    <span>Reset Flask (மீட்டமை)</span>
+                  </button>
+                </div>
+
+                <!-- Log Data Point Button -->
+                <button id="chem-log-reading-btn" type="button" class="w-full py-2.5 px-4 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-bold shadow-[0_0_15px_rgba(0,242,254,0.3)] hover:opacity-95 flex items-center justify-center gap-2 transition-all">
+                  <span class="material-symbols-outlined text-base">add_chart</span>
+                  <span><span class="ta-text">தற்போதைய வாசிப்பை குறிப்பேட்டில் பதிவு செய் • </span>Log Reading to Notebook</span>
+                </button>
+              </div>
+
+              <!-- Live Mini Titration Curve Preview -->
+              <div class="bg-surface-container-low rounded-xl p-space-md border border-outline-variant/15 flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-sm text-label-sm text-outline uppercase"><span class="ta-text">நேரடி pH வளைவு • </span>Live Titration Curve (pH vs mL)</span>
+                  <button type="button" data-goto-view="data-visualizer" class="text-primary-fixed-dim hover:underline font-label-sm text-label-sm flex items-center gap-1">
+                    <span>Expand Graph</span>
+                    <span class="material-symbols-outlined text-xs">open_in_new</span>
+                  </button>
+                </div>
+                <svg id="chem-mini-svg" viewBox="0 0 360 150" class="w-full h-36 bg-surface-container-lowest rounded-lg border border-outline-variant/20"></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- --------------------------------------------------- -->
+          <!-- SIMULATOR B: PHYSICS SIMPLE PENDULUM (EXP 02)       -->
+          <!-- --------------------------------------------------- -->
+          <div id="sim-bay-phys" class="hidden grid-cols-1 lg:grid-cols-12 gap-space-lg">
+            <!-- Left 7 Cols: Interactive Pendulum Canvas Stage -->
+            <div class="lg:col-span-7 bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col justify-between">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-1 rounded-full bg-secondary-container/40 text-secondary font-label-sm text-label-sm">
+                    Photogate Laser Active
+                  </span>
+                  <span id="phys-env-badge" class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                    பூமி • Earth (g = 9.81 m/s²)
+                  </span>
+                </div>
+                <span class="font-label-sm text-label-sm text-primary-fixed-dim">Harmonic Motion Simulator</span>
+              </div>
+
+              <div class="my-4 relative h-[380px] w-full bg-surface-container-lowest rounded-xl border border-outline-variant/20 overflow-hidden flex items-center justify-center">
+                <canvas id="phys-pendulum-canvas" class="w-full h-full block"></canvas>
+
+                <!-- Telemetry Readout Box -->
+                <div class="absolute top-3 right-3 bg-surface-container-low/90 backdrop-blur-md p-3 rounded-xl border border-outline-variant/30 flex flex-col gap-2 w-48 pointer-events-none">
+                  <div>
+                    <span class="font-label-sm text-[10px] text-outline uppercase">Theoretical Period (T)</span>
+                    <div id="phys-readout-period" class="font-telemetry-display text-xl text-secondary font-bold">1.42 s</div>
+                  </div>
+                  <div class="border-t border-outline-variant/20 pt-1.5">
+                    <span class="font-label-sm text-[10px] text-outline uppercase">Period Squared (T²)</span>
+                    <div id="phys-readout-tsq" class="font-telemetry-display text-xl text-primary font-bold">2.01 s²</div>
+                  </div>
+                  <div class="border-t border-outline-variant/20 pt-1.5">
+                    <span class="font-label-sm text-[10px] text-outline uppercase">Oscillations Counted</span>
+                    <div id="phys-readout-osc" class="font-telemetry-display text-lg text-tertiary-fixed-dim font-bold">0 cycles</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center justify-between gap-2 text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-space-md py-2 rounded-lg">
+                <span>சூத்திரம் / Formula: T = 2π√(L/g)  ⇒  g = 4π²(L / T²)</span>
+                <span id="phys-calc-g" class="text-secondary font-bold">Calculated g = 9.81 m/s²</span>
+              </div>
+            </div>
+
+            <!-- Right 5 Cols: Pendulum Controls -->
+            <div class="lg:col-span-5 flex flex-col justify-between gap-space-md">
+              <div class="bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col gap-space-md">
+                <div>
+                  <span class="font-label-sm text-label-sm text-secondary uppercase"><span class="ta-text">ஊசல் அளவுருக்கள் • </span>Pendulum Parameters</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface"><span class="ta-text">நீளம் மற்றும் கோணம் • </span>Length (L) &amp; Angle (θ)</h3>
+                </div>
+
+                <!-- Length Slider -->
+                <div class="flex flex-col gap-1 bg-surface-container p-space-sm rounded-lg">
+                  <div class="flex justify-between font-label-sm text-label-sm">
+                    <span class="text-on-surface-variant"><span class="ta-text">கயிற்றின் நீளம் • </span>String Length (L)</span>
+                    <span id="phys-length-val" class="text-secondary font-bold">0.50 m (50 cm)</span>
+                  </div>
+                  <input id="phys-length-slider" type="range" min="0.20" max="1.20" step="0.05" value="0.50" class="w-full accent-purple-400 cursor-pointer">
+                </div>
+
+                <!-- Release Angle Slider -->
+                <div class="flex flex-col gap-1 bg-surface-container p-space-sm rounded-lg">
+                  <div class="flex justify-between font-label-sm text-label-sm">
+                    <span class="text-on-surface-variant"><span class="ta-text">விடுவிப்பு கோணம் • </span>Release Angle (θ₀)</span>
+                    <span id="phys-angle-val" class="text-primary-fixed font-bold">12°</span>
+                  </div>
+                  <input id="phys-angle-slider" type="range" min="5" max="25" step="1" value="12" class="w-full accent-cyan-400 cursor-pointer">
+                </div>
+
+                <!-- Bob Mass & Gravity Selector -->
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="flex flex-col gap-1 bg-surface-container p-space-sm rounded-lg">
+                    <span class="font-label-sm text-label-sm text-outline"><span class="ta-text">குண்டின் நிறை • </span>Bob Mass</span>
+                    <select id="phys-mass-select" class="bg-surface-container-lowest text-on-surface font-label-sm text-label-sm p-1.5 rounded border border-outline-variant/30">
+                      <option value="50">50 g (Brass)</option>
+                      <option value="100" selected>100 g (Brass)</option>
+                      <option value="200">200 g (Steel)</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col gap-1 bg-surface-container p-space-sm rounded-lg">
+                    <span class="font-label-sm text-label-sm text-outline"><span class="ta-text">ஈர்ப்பு மண்டலம் • </span>Gravity (g)</span>
+                    <select id="phys-gravity-select" class="bg-surface-container-lowest text-on-surface font-label-sm text-label-sm p-1.5 rounded border border-outline-variant/30">
+                      <option value="9.81" selected>Earth (9.81 m/s²)</option>
+                      <option value="1.62">Moon (1.62 m/s²)</option>
+                      <option value="3.72">Mars (3.72 m/s²)</option>
+                      <option value="24.79">Jupiter (24.79 m/s²)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                  <button id="phys-toggle-swing-btn" type="button" class="py-2 px-3 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md font-bold flex items-center justify-center gap-1.5">
+                    <span class="material-symbols-outlined text-sm">pause</span>
+                    <span id="phys-toggle-swing-text">Pause Swing</span>
+                  </button>
+                  <button id="phys-reset-osc-btn" type="button" class="py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5">
+                    <span class="material-symbols-outlined text-sm">restart_alt</span>
+                    <span>Zero Counter</span>
+                  </button>
+                </div>
+
+                <button id="phys-log-reading-btn" type="button" class="w-full py-2.5 px-4 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-bold shadow-[0_0_15px_rgba(0,242,254,0.3)] hover:opacity-95 flex items-center justify-center gap-2 transition-all">
+                  <span class="material-symbols-outlined text-base">add_chart</span>
+                  <span><span class="ta-text">L மற்றும் T² மதிப்பை பதிவு செய் • </span>Log Trial (L, T, T²)</span>
+                </button>
+              </div>
+
+              <!-- Mini T^2 vs L Regression Preview -->
+              <div class="bg-surface-container-low rounded-xl p-space-md border border-outline-variant/15 flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-sm text-label-sm text-outline uppercase">Linear Fit: T² vs Length L</span>
+                  <button type="button" data-goto-view="data-visualizer" class="text-secondary hover:underline font-label-sm text-label-sm flex items-center gap-1">
+                    <span>Full Graph</span>
+                    <span class="material-symbols-outlined text-xs">open_in_new</span>
+                  </button>
+                </div>
+                <svg id="phys-mini-svg" viewBox="0 0 360 140" class="w-full h-32 bg-surface-container-lowest rounded-lg border border-outline-variant/20"></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- --------------------------------------------------- -->
+          <!-- SIMULATOR C: BIOLOGY HYDRILLA PHOTOSYNTHESIS (EXP 03)-->
+          <!-- --------------------------------------------------- -->
+          <div id="sim-bay-bio" class="hidden grid-cols-1 lg:grid-cols-12 gap-space-lg">
+            <!-- Left 7 Cols: Visual Beaker, Hydrilla, Bubbles & Lamp Distance -->
+            <div class="lg:col-span-7 bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col justify-between">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-1 rounded-full bg-tertiary-container/25 text-tertiary-fixed-dim font-label-sm text-label-sm">
+                    Plant: Hydrilla verticillata
+                  </span>
+                  <span id="bio-splint-status" class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                    O₂ Gas Collecting...
+                  </span>
+                </div>
+                <span class="font-label-sm text-label-sm text-primary-fixed-dim">Inverse Square Law (I ∝ 1/d²)</span>
+              </div>
+
+              <!-- Visual Stage -->
+              <div class="my-4 relative h-[380px] w-full bg-surface-container-lowest rounded-xl border border-outline-variant/20 overflow-hidden flex items-center justify-between px-6">
+                <canvas id="bio-sim-canvas" class="absolute inset-0 w-full h-full block"></canvas>
+
+                <!-- Telemetry Overlay -->
+                <div class="absolute top-3 right-3 bg-surface-container-low/90 backdrop-blur-md p-3 rounded-xl border border-outline-variant/30 flex flex-col gap-2 w-48 z-10">
+                  <div>
+                    <span class="font-label-sm text-[10px] text-outline uppercase">Lamp Distance (d)</span>
+                    <div id="bio-readout-dist" class="font-telemetry-display text-xl text-tertiary-fixed-dim font-bold">10 cm</div>
+                  </div>
+                  <div class="border-t border-outline-variant/20 pt-1.5">
+                    <span class="font-label-sm text-[10px] text-outline uppercase">O₂ Bubble Rate</span>
+                    <div id="bio-readout-rate" class="font-telemetry-display text-xl text-primary font-bold">47 bub/min</div>
+                  </div>
+                  <div class="border-t border-outline-variant/20 pt-1.5">
+                    <span class="font-label-sm text-[10px] text-outline uppercase">Light Flux (1/d²)</span>
+                    <div id="bio-readout-flux" class="font-telemetry-display text-base text-secondary font-bold">0.0100 cm⁻²</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center justify-between gap-2 text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-space-md py-2 rounded-lg">
+                <span>வினை: 6CO₂ + 6H₂O + ஒளி ஆற்றல் (Light) → C₆H₁₂O₆ + 6O₂↑ (குமிழ்கள்)</span>
+                <span class="text-tertiary-fixed-dim">0.5% NaHCO₃ Enriched Water</span>
+              </div>
+            </div>
+
+            <!-- Right 5 Cols: Biology Controls & Glowing Splint Test -->
+            <div class="lg:col-span-5 flex flex-col justify-between gap-space-md">
+              <div class="bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col gap-space-md">
+                <div>
+                  <span class="font-label-sm text-label-sm text-tertiary-fixed-dim uppercase"><span class="ta-text">ஒளிச்சேர்க்கை கட்டுப்பாடு • </span>Photobioreactor Controls</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface"><span class="ta-text">ஒளி மூல தூரம் &amp; கார்பன் • </span>Light Distance &amp; CO₂</h3>
+                </div>
+
+                <!-- Lamp Distance Slider -->
+                <div class="flex flex-col gap-1 bg-surface-container p-space-sm rounded-lg">
+                  <div class="flex justify-between font-label-sm text-label-sm">
+                    <span class="text-on-surface-variant"><span class="ta-text">விளக்கு தூரம் • </span>LED Lamp Distance (d)</span>
+                    <span id="bio-dist-label" class="text-tertiary-fixed-dim font-bold">10 cm</span>
+                  </div>
+                  <input id="bio-dist-slider" type="range" min="10" max="50" step="5" value="10" class="w-full accent-sky-400 cursor-pointer">
+                  <div class="flex justify-between text-[10px] font-label-sm text-outline pt-1">
+                    <span>10 cm (Max Bright)</span>
+                    <span>25 cm</span>
+                    <span>50 cm (Dim)</span>
+                  </div>
+                </div>
+
+                <!-- Quick Distance Preset Buttons -->
+                <div class="grid grid-cols-5 gap-1.5">
+                  <button type="button" data-bio-dist="10" class="py-1.5 rounded bg-surface-container-high hover:bg-tertiary-container hover:text-on-tertiary-container font-label-sm text-label-sm">10cm</button>
+                  <button type="button" data-bio-dist="15" class="py-1.5 rounded bg-surface-container-high hover:bg-tertiary-container hover:text-on-tertiary-container font-label-sm text-label-sm">15cm</button>
+                  <button type="button" data-bio-dist="20" class="py-1.5 rounded bg-surface-container-high hover:bg-tertiary-container hover:text-on-tertiary-container font-label-sm text-label-sm">20cm</button>
+                  <button type="button" data-bio-dist="30" class="py-1.5 rounded bg-surface-container-high hover:bg-tertiary-container hover:text-on-tertiary-container font-label-sm text-label-sm">30cm</button>
+                  <button type="button" data-bio-dist="50" class="py-1.5 rounded bg-surface-container-high hover:bg-tertiary-container hover:text-on-tertiary-container font-label-sm text-label-sm">50cm</button>
+                </div>
+
+                <!-- NaHCO3 Concentration & Spectrum -->
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="flex flex-col gap-1 bg-surface-container p-space-sm rounded-lg">
+                    <span class="font-label-sm text-label-sm text-outline">NaHCO₃ (CO₂ Source)</span>
+                    <select id="bio-bicarb-select" class="bg-surface-container-lowest text-on-surface font-label-sm text-label-sm p-1.5 rounded border border-outline-variant/30">
+                      <option value="0.5">0.2% NaHCO₃ (Low)</option>
+                      <option value="1.0" selected>0.5% NaHCO₃ (Optimal)</option>
+                      <option value="1.2">1.0% NaHCO₃ (Saturated)</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col gap-1 bg-surface-container p-space-sm rounded-lg">
+                    <span class="font-label-sm text-label-sm text-outline">LED Spectrum</span>
+                    <select id="bio-spectrum-select" class="bg-surface-container-lowest text-on-surface font-label-sm text-label-sm p-1.5 rounded border border-outline-variant/30">
+                      <option value="1.0" selected>Full White (6500K)</option>
+                      <option value="1.15">Red-Blue (PAR Peak)</option>
+                      <option value="0.25">Green (530nm Reflected)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Glowing Splint O2 Verification Button -->
+                <button id="bio-splint-btn" type="button" class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-amber-500/20 border border-amber-400/40 text-amber-300 font-label-md text-label-md font-semibold flex items-center justify-center gap-2 transition-all">
+                  <span class="material-symbols-outlined text-base">local_fire_department</span>
+                  <span><span class="ta-text">தணல் குச்சி சோதனை • </span>Run Glowing Splint O₂ Test</span>
+                </button>
+
+                <button id="bio-log-reading-btn" type="button" class="w-full py-2.5 px-4 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-bold shadow-[0_0_15px_rgba(0,242,254,0.3)] hover:opacity-95 flex items-center justify-center gap-2 transition-all">
+                  <span class="material-symbols-outlined text-base">add_chart</span>
+                  <span><span class="ta-text">குமிழ் வீதத்தை குறிப்பேட்டில் பதிவு செய் • </span>Log Bubble Rate</span>
+                </button>
+              </div>
+
+              <!-- Mini Bubble Rate vs 1/d^2 Chart -->
+              <div class="bg-surface-container-low rounded-xl p-space-md border border-outline-variant/15 flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-sm text-label-sm text-outline uppercase">Bubble Rate vs Distance (d)</span>
+                  <button type="button" data-goto-view="data-visualizer" class="text-tertiary-fixed-dim hover:underline font-label-sm text-label-sm flex items-center gap-1">
+                    <span>Full Analysis</span>
+                    <span class="material-symbols-outlined text-xs">open_in_new</span>
+                  </button>
+                </div>
+                <svg id="bio-mini-svg" viewBox="0 0 360 140" class="w-full h-32 bg-surface-container-lowest rounded-lg border border-outline-variant/20"></svg>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================= -->
+        <!-- VIEW 3: DATA & GRAPHS VISUALIZER (`data-visualizer`)    -->
+        <!-- ======================================================= -->
+        <section id="view-data-visualizer" class="hidden p-gutter sm:p-space-lg flex-col gap-space-lg">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-low p-space-md rounded-xl border border-outline-variant/15">
+            <div>
+              <span class="text-primary-fixed-dim font-label-sm text-label-sm uppercase"><span class="ta-text">வரைபடங்கள் மற்றும் பகுப்பாய்வு • </span>Scientific Data Visualizer</span>
+              <h2 class="font-headline-md text-headline-md text-on-surface"><span class="ta-text">நிகழ்நேர அளவீட்டு வரைபடங்கள் • </span>Multi-Experiment Telemetry Plots</h2>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <button type="button" data-chart-tab="chem" class="chart-tab-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-primary-container text-on-primary-fixed font-bold">
+                Exp 04: Titration Curve
+              </button>
+              <button type="button" data-chart-tab="phys" class="chart-tab-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface">
+                Exp 02: Pendulum (T² vs L)
+              </button>
+              <button type="button" data-chart-tab="bio" class="chart-tab-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface">
+                Exp 03: Photosynthesis (1/d²)
+              </button>
+              <button id="btn-export-csv" type="button" class="px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-container-high hover:bg-surface-bright text-primary-fixed flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">download</span>
+                <span>Export CSV</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+            <!-- Main Large Interactive SVG Plot (8 Cols) -->
+            <div class="lg:col-span-8 bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col gap-space-md">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 id="main-chart-title" class="font-headline-sm text-headline-sm text-primary">
+                    அமில-கார நடுநிலையாக்கல் வளைவு • Acid-Base Titration &amp; Thermogram
+                  </h3>
+                  <p id="main-chart-subtitle" class="font-body-sm text-body-sm text-on-surface-variant">
+                    Sigmoid pH equivalence curve (cyan) overlaid with exothermic temperature rise ΔT (magenta).
+                  </p>
+                </div>
+                <span id="main-chart-r2" class="px-2.5 py-1 rounded-full bg-surface-container text-primary-fixed font-label-sm text-label-sm">
+                  Equivalence: 25.0 mL (pH 7.00)
+                </span>
+              </div>
+
+              <div class="w-full h-[360px] bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-2 flex items-center justify-center">
+                <svg id="main-analytical-svg" viewBox="0 0 680 340" class="w-full h-full"></svg>
+              </div>
+            </div>
+
+            <!-- Recorded Data Table (4 Cols) -->
+            <div class="lg:col-span-4 bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-space-sm">
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface"><span class="ta-text">பதிவு செய்யப்பட்ட அட்டவணை • </span>Logged Readings</h3>
+                  <button type="button" data-goto-view="interactive-workbench" class="text-primary-fixed font-label-sm text-label-sm hover:underline">+ Add Trial</button>
+                </div>
+                <div class="overflow-y-auto max-h-[310px] rounded-lg border border-outline-variant/20">
+                  <table class="w-full text-left font-label-sm text-label-sm">
+                    <thead id="data-table-head" class="bg-surface-container-lowest text-outline uppercase"></thead>
+                    <tbody id="data-table-body" class="divide-y divide-outline-variant/15 bg-surface-container"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="mt-space-md pt-space-sm border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-outline">
+                <span>Precision: ±0.01 Digital Sensor</span>
+                <span class="text-primary-fixed-dim">Auto-Synced</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================= -->
+        <!-- VIEW 4: LAB NOTEBOOK (`lab-notebook`)                   -->
+        <!-- ======================================================= -->
+        <section id="view-lab-notebook" class="hidden p-gutter sm:p-space-lg flex-col gap-space-lg">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-low p-space-md rounded-xl border border-outline-variant/15">
+            <div>
+              <span class="text-secondary font-label-sm text-label-sm uppercase"><span class="ta-text">மாயா லின் ஆய்வுக் குறிப்பேடு • </span>Digital Research Journal</span>
+              <h2 class="font-headline-md text-headline-md text-on-surface"><span class="ta-text">பரிசோதனை அவதானிப்புகள் &amp; முடிவுகள் • </span>Lab Observations &amp; Hypotheses</h2>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <button type="button" data-nb-filter="all" class="nb-filter-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-primary-container text-on-primary-fixed font-bold">All (அனைத்தும்)</button>
+              <button type="button" data-nb-filter="chem" class="nb-filter-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Chemistry</button>
+              <button type="button" data-nb-filter="phys" class="nb-filter-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Physics</button>
+              <button type="button" data-nb-filter="bio" class="nb-filter-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Biology</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+            <!-- Left 5 Cols: New Observation Entry Form -->
+            <div class="lg:col-span-5 bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col gap-space-md">
+              <h3 class="font-headline-sm text-headline-sm text-primary"><span class="ta-text">புதிய ஆய்வுக் குறிப்பு சேர்க்க • </span>Add Lab Observation</h3>
+
+              <div class="flex flex-col gap-1">
+                <label class="font-label-sm text-label-sm text-outline">பரிசோதனை / Experiment</label>
+                <select id="nb-exp-select" class="bg-surface-container text-on-surface font-body-sm text-body-sm p-2.5 rounded-lg border border-outline-variant/30">
+                  <option value="chem">Exp 04: Acid-Base Titration (வேதியியல்)</option>
+                  <option value="phys">Exp 02: Simple Pendulum (இயற்பியல்)</option>
+                  <option value="bio">Exp 03: Hydrilla Photosynthesis (உயிரியல்)</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <label class="font-label-sm text-label-sm text-outline">கருதுகோள் / Hypothesis &amp; Title</label>
+                <input id="nb-title-input" type="text" placeholder="உ-ம்: பினோல்ப்தலீன் நிறமாற்ற இறுதி நிலை (pH 8.2)" class="bg-surface-container text-on-surface font-body-sm text-body-sm p-2.5 rounded-lg border border-outline-variant/30 focus:outline-none focus:border-primary-container">
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <label class="font-label-sm text-label-sm text-outline">அவதானிப்பு மற்றும் முடிவு / Observation Notes</label>
+                <textarea id="nb-body-input" rows="4" placeholder="உங்கள் ஆய்வக உற்றுநோக்கல் மற்றும் கணக்கீடுகளை இங்கே எழுதவும்..." class="bg-surface-container text-on-surface font-body-sm text-body-sm p-2.5 rounded-lg border border-outline-variant/30 focus:outline-none focus:border-primary-container"></textarea>
+              </div>
+
+              <button id="nb-save-btn" type="button" class="py-2.5 px-4 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-bold flex items-center justify-center gap-2 shadow-[0_0_12px_rgba(0,242,254,0.3)]">
+                <span class="material-symbols-outlined text-base">bookmark_add</span>
+                <span><span class="ta-text">குறிப்பேட்டில் சேமி • </span>Save Entry to Lab Notebook</span>
+              </button>
+            </div>
+
+            <!-- Right 7 Cols: Saved Entries List -->
+            <div class="lg:col-span-7 flex flex-col gap-space-md" id="nb-entries-container"></div>
+          </div>
+        </section>
+
+        <!-- ======================================================= -->
+        <!-- VIEW 5: SCIENCE CONCEPTS & FORMULAS (`theory-and-formulas`)-->
+        <!-- ======================================================= -->
+        <section id="view-theory-and-formulas" class="hidden p-gutter sm:p-space-lg flex-col gap-space-lg">
+          <div class="bg-surface-container-low p-space-md sm:p-space-lg rounded-xl border border-outline-variant/15">
+            <span class="text-primary-fixed-dim font-label-sm text-label-sm uppercase"><span class="ta-text">அறிவியல் கோட்பாடுகள் மற்றும் சமன்பாடுகள் • </span>Bilingual Reference Guide</span>
+            <h2 class="font-headline-md text-headline-md text-on-surface mt-0.5"><span class="ta-text">அடிப்படை விதிகள் &amp; சூத்திரங்கள் • </span>Core Laws, Equations &amp; Concept Check</h2>
+          </div>
+
+          <!-- 3 Theory Reference Cards -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+            <!-- Chem Theory -->
+            <div class="bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col justify-between gap-space-md">
+              <div class="flex flex-col gap-space-sm">
+                <span class="px-2.5 py-1 rounded-full bg-primary-container/15 text-primary-fixed font-label-sm text-label-sm self-start">வேதியியல் • CHEMISTRY EXP-04</span>
+                <h3 class="font-headline-sm text-headline-sm text-primary">அமில-கார நடுநிலையாக்கல் &amp; வெப்ப வேதியியல்</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  வலுவான அமிலம் (HCl) மற்றும் வலுவான காரம் (NaOH) வினைபுரியும் போது உப்பும் நீரும் உருவாகின்றன. இது ஒரு வெப்ப உமிழ் வினை (Exothermic Reaction).
+                </p>
+                <div class="bg-surface-container-lowest p-3 rounded-lg font-telemetry-display text-xs text-primary-fixed space-y-1">
+                  <div>M₁V₁ = M₂V₂ (Equivalence Law)</div>
+                  <div>pH = -log₁₀[H⁺]</div>
+                  <div>q = -m · c · ΔT  (ΔH = -57.3 kJ/mol)</div>
+                </div>
+              </div>
+              <div class="text-label-sm font-label-sm text-outline border-t border-outline-variant/20 pt-2">
+                பினோல்ப்தலீன்: அமிலத்தில் நிறமற்றது, காரத்தில் (pH &gt; 8.2) இளஞ்சிவப்பு.
+              </div>
+            </div>
+
+            <!-- Phys Theory -->
+            <div class="bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col justify-between gap-space-md">
+              <div class="flex flex-col gap-space-sm">
+                <span class="px-2.5 py-1 rounded-full bg-secondary-container/40 text-secondary font-label-sm text-label-sm self-start">இயற்பியல் • PHYSICS EXP-02</span>
+                <h3 class="font-headline-sm text-headline-sm text-secondary">தனி ஊசல் விதிகள் (Laws of Simple Pendulum)</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  சிறிய கோண அலைவுகளுக்கு (θ &lt; 15°), தனி ஊசலின் அலைவுக்காலம் (T) ஊசல் குண்டின் நிறையைப் பொறுத்ததல்ல; அது நீளத்தின் (L) வர்க்கமூலத்திற்கு நேர்த்தகவில் இருக்கும்.
+                </p>
+                <div class="bg-surface-container-lowest p-3 rounded-lg font-telemetry-display text-xs text-secondary space-y-1">
+                  <div>T = 2π √(L / g)</div>
+                  <div>T² = (4π² / g) · L</div>
+                  <div>g = 4π² · (L / T²) ≈ 9.81 m/s²</div>
+                </div>
+              </div>
+              <div class="text-label-sm font-label-sm text-outline border-t border-outline-variant/20 pt-2">
+                T² vs L வரைபடத்தின் சாய்வு (Slope m) = 4π²/g ஆகும்.
+              </div>
+            </div>
+
+            <!-- Bio Theory -->
+            <div class="bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col justify-between gap-space-md">
+              <div class="flex flex-col gap-space-sm">
+                <span class="px-2.5 py-1 rounded-full bg-tertiary-container/25 text-tertiary-fixed-dim font-label-sm text-label-sm self-start">உயிரியல் • BIOLOGY EXP-03</span>
+                <h3 class="font-headline-sm text-headline-sm text-tertiary">ஒளிச்சேர்க்கை &amp; எதிர் இருமடி விதி</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  நீர்வாழ் தாவரமான ஹைட்ரில்லா ஒளியின் முன்னிலையில் ஆக்ஸிஜன் குமிழ்களை வெளியிடுகிறது. ஒளி மூலத்தின் தூரம் (d) அதிகரிக்கும் போது ஒளிச்செறிவு (I) குறையும்.
+                </p>
+                <div class="bg-surface-container-lowest p-3 rounded-lg font-telemetry-display text-xs text-tertiary-fixed-dim space-y-1">
+                  <div>Intensity I ∝ 1 / d²</div>
+                  <div>6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂↑</div>
+                  <div>Glowing Splint + O₂ → Relights Flame</div>
+                </div>
+              </div>
+              <div class="text-label-sm font-label-sm text-outline border-t border-outline-variant/20 pt-2">
+                சோடியம் பைகார்பனேட் (NaHCO₃) நீரில் கரைந்த CO₂ அளவை அதிகரிக்கிறது.
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Quick Concept Check Quiz -->
+          <div class="bg-surface-container-low rounded-xl p-space-md sm:p-space-lg border border-outline-variant/15 flex flex-col gap-space-md">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-primary-fixed-dim font-label-sm text-label-sm uppercase">சுய மதிப்பீடு • Interactive Viva Quiz</span>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface">ஆய்வக வினாடி-வினா (Test Your Mastery)</h3>
+              </div>
+              <span id="quiz-score-badge" class="px-3 py-1 rounded-full bg-surface-container text-primary-fixed font-label-sm text-label-sm">Score: 0 / 3</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+              <div class="bg-surface-container p-space-md rounded-lg flex flex-col justify-between gap-3">
+                <p class="font-body-sm text-body-sm text-on-surface font-semibold">
+                  1. 25 mL (0.1M HCl) உடன் 25 mL (0.1M NaOH) சேர்க்கும் போது கரைசலின் pH மதிப்பு என்ன?
+                </p>
+                <div class="flex flex-col gap-1.5">
+                  <button type="button" data-quiz="1" data-ans="wrong" class="quiz-opt text-left px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-high font-label-sm text-label-sm">A) pH 1.00 (Strong Acid)</button>
+                  <button type="button" data-quiz="1" data-ans="correct" class="quiz-opt text-left px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-high font-label-sm text-label-sm">B) pH 7.00 (Neutral Equivalence)</button>
+                  <button type="button" data-quiz="1" data-ans="wrong" class="quiz-opt text-left px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-high font-label-sm text-label-sm">C) pH 13.00 (Strong Base)</button>
+                </div>
+              </div>
+              <div class="bg-surface-container p-space-md rounded-lg flex flex-col justify-between gap-3">
+                <p class="font-body-sm text-body-sm text-on-surface font-semibold">
+                  2. தனி ஊசலின் நீளத்தை (L) நான்கு மடங்கு ஆக்கினால், அதன் அலைவுக்காலம் (T) என்னவாகும்?
+                </p>
+                <div class="flex flex-col gap-1.5">
+                  <button type="button" data-quiz="2" data-ans="correct" class="quiz-opt text-left px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-high font-label-sm text-label-sm">A) இரு மடங்காகும் (Doubles: 2T)</button>
+                  <button type="button" data-quiz="2" data-ans="wrong" class="quiz-opt text-left px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-high font-label-sm text-label-sm">B) பாதியாகக் குறையும் (Halves)</button>
+                  <button type="button" data-quiz="2" data-ans="wrong" class="quiz-opt text-left px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-high font-label-sm text-label-sm">C) மாறாது (Remains same)</button>
+                </div>
+              </div>
+              <div class="bg-surface-container p-space-md rounded-lg flex flex-col justify-between gap-3">
+                <p class="font-body-sm text-body-sm text-on-surface font-semibold">
+                  3. ஹைட்ரில்லா சோதனையில் வெளியாகும் வாயு ஆக்ஸிஜன் (O₂) என்பதை எவ்வாறு உறுதிப்படுத்தலாம்?
+                </p>
+                <div class="flex flex-col gap-1.5">
+                  <button type="button" data-quiz="3" data-ans="wrong" class="quiz-opt text-left px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-high font-label-sm text-label-sm">A) சுண்ணாம்பு நீர் பால் நிறமாதல்</button>
+                  <button type="button" data-quiz="3" data-ans="correct" class="quiz-opt text-left px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-high font-label-sm text-label-sm">B) தணல் குச்சி சுடர்விட்டு எரிதல் (Glowing Splint)</button>
+                  <button type="button" data-quiz="3" data-ans="wrong" class="quiz-opt text-left px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-high font-label-sm text-label-sm">C) பாப் ஒலி (Pop sound)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MODALS (Safety Checklist, Portfolio PDF Export, Up Next)  -->
+  <!-- ========================================================= -->
+  <div id="modal-backdrop" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm items-center justify-center p-4">
+    <div id="modal-content-box" class="bg-surface-container-low border border-outline-variant/40 rounded-2xl max-w-xl w-full p-space-lg shadow-2xl text-on-surface relative">
+      <!-- Dynamic Modal Content Injected via JS -->
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
+
+  <!-- ========================================================= -->
+  <!-- APPLICATION JAVASCRIPT ENGINE                             -->
+  <!-- ========================================================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // -----------------------------------------------------------
+      // 1. GLOBAL APPLICATION STATE
+      // -----------------------------------------------------------
+      const state = {
+        lang: 'ta', // 'ta' (Bilingual Tamil+English) or 'en' (English focused)
+        currentView: 'dashboard', // 'dashboard' | 'interactive-workbench' | 'data-visualizer' | 'lab-notebook' | 'theory-and-formulas'
+        activeExp: 'chem', // 'chem' | 'phys' | 'bio'
+        timerSeconds: 4 * 60 + 32, // Starts at 00:04:32
+        timerRunning: true,
+        quizAnswered: {},
+
+        // Chemistry Exp 04 State
+        chem: {
+          volNaOH: 0.0, // mL (0 to 50)
+          pH: 1.00,
+          tempC: 25.00,
+          indicator: 'phenolphthalein',
+          autoDripInterval: null,
+          logs: [
+            { vol: 0.0, pH: 1.00, tempC: 25.00 },
+            { vol: 10.0, pH: 1.37, tempC: 27.56 },
+            { vol: 20.0, pH: 1.95, tempC: 30.12 },
+            { vol: 24.5, pH: 3.00, tempC: 31.27 },
+            { vol: 25.0, pH: 7.02, tempC: 31.40 },
+            { vol: 25.5, pH: 11.00, tempC: 31.28 },
+            { vol: 30.0, pH: 11.96, tempC: 30.25 },
+            { vol: 40.0, pH: 12.36, tempC: 28.40 }
+          ]
+        },
+
+        // Physics Exp 02 State
+        phys: {
+          lengthM: 0.50,
+          angleDeg: 12,
+          massG: 100,
+          gravity: 9.81,
+          swinging: true,
+          simTime: 0,
+          oscCount: 0,
+          logs: [
+            { L: 0.25, T: 1.00, T2: 1.01, g: 9.80 },
+            { L: 0.50, T: 1.42, T2: 2.01, g: 9.81 },
+            { L: 0.75, T: 1.74, T2: 3.02, g: 9.81 },
+            { L: 1.00, T: 2.01, T2: 4.03, g: 9.80 },
+            { L: 1.20, T: 2.20, T2: 4.83, g: 9.81 }
+          ]
+        },
+
+        // Biology Exp 03 State
+        bio: {
+          distanceCm: 10,
+          bicarbFactor: 1.0,
+          spectrumFactor: 1.0,
+          bubbleRate: 47,
+          splintTested: false,
+          bubbles: [],
+          logs: [
+            { d: 10, invD2: 0.0100, rate: 47 },
+            { d: 15, invD2: 0.0044, rate: 23 },
+            { d: 20, invD2: 0.0025, rate: 14 },
+            { d: 30, invD2: 0.0011, rate: 7 },
+            { d: 50, invD2: 0.0004, rate: 3 }
+          ]
+        },
+
+        // Lab Notebook Entries
+        notebook: [
+          {
+            id: 1,
+            exp: 'chem',
+            badge: 'வேதியியல் • Exp 04',
+            title: 'பினோல்ப்தலீன் நிறமாற்ற இறுதி நிலை • Equivalence Point Verification',
+            body: '25.0 mL (0.1M HCl) உடன் சரியாக 25.0 mL (0.1M NaOH) சேர்த்த போது pH 7.02 ஆக உயர்ந்தது. கலோரிமீட்டர் வெப்பநிலை 25.0°C இலிருந்து 31.4°C (+6.4°C) ஆக உயர்ந்து வெப்ப உமிழ்வினையை உறுதி செய்தது.',
+            time: 'Yesterday, 4:15 PM'
+          },
+          {
+            id: 2,
+            exp: 'phys',
+            badge: 'இயற்பியல் • Exp 02',
+            title: 'தனி ஊசல் T² vs L நேர்க்கோட்டு சாய்வு • Gravitational Constant g',
+            body: '5 வெவ்வேறு நீளங்களில் (0.25m முதல் 1.20m வரை) அலைவுக்காலம் T கணக்கிடப்பட்டது. T² vs L வரைபடம் R² = 0.9998 நேர்க்கோட்டுத் துல்லியத்துடன் g = 9.81 m/s² எனக் காட்டியது.',
+            time: '2 days ago, 3:40 PM'
+          },
+          {
+            id: 3,
+            exp: 'bio',
+            badge: 'உயிரியல் • Exp 03',
+            title: 'ஹைட்ரில்லா ஆக்ஸிஜன் குமிழ் வீதம் • Inverse Square Law & O₂ Test',
+            body: '10 cm தூரத்தில் நிமிடத்திற்கு 47 குமிழ்கள் வெளிப்பட்டன. தணல் குச்சி (Glowing Splint) சோதனை மூலம் சேகரிக்கப்பட்ட வாயு ஆக்ஸிஜன் (O₂) என நிரூபிக்கப்பட்டது.',
+            time: '3 days ago, 11:20 AM'
+          }
+        ]
+      };
+
+      // -----------------------------------------------------------
+      // 2. TOAST NOTIFICATION HELPER
+      // -----------------------------------------------------------
+      function showToast(titleTa, subtitleEn, icon = 'check_circle') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = 'bg-surface-container-high/95 backdrop-blur-md border border-primary-container/40 text-on-surface px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 pointer-events-auto';
+        toast.innerHTML = `
+          <span class="material-symbols-outlined text-primary-container text-xl">${icon}</span>
+          <div class="flex flex-col">
+            <span class="font-label-md text-label-md font-bold text-primary">${titleTa}</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">${subtitleEn}</span>
+          </div>
+        `;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(8px)';
+          setTimeout(() => toast.remove(), 300);
+        }, 3200);
+      }
+
+      // -----------------------------------------------------------
+      // 3. GLOBAL TIMER & HEADER TOOLBAR
+      // -----------------------------------------------------------
+      const timerDisplay = document.getElementById('global-timer-display');
+      const iconTimerToggle = document.getElementById('icon-timer-toggle');
+      const timerPulseIcon = document.getElementById('timer-pulse-icon');
+
+      function formatTime(sec) {
+        const hrs = String(Math.floor(sec / 3600)).padStart(2, '0');
+        const mins = String(Math.floor((sec % 3600) / 60)).padStart(2, '0');
+        const s = String(sec % 60).padStart(2, '0');
+        return `${hrs}:${mins}:${s}`;
+      }
+
+      setInterval(() => {
+        if (state.timerRunning) {
+          state.timerSeconds++;
+          timerDisplay.textContent = formatTime(state.timerSeconds);
+        }
+      }, 1000);
+
+      document.getElementById('btn-timer-toggle').addEventListener('click', () => {
+        state.timerRunning = !state.timerRunning;
+        iconTimerToggle.textContent = state.timerRunning ? 'pause' : 'play_arrow';
+        timerPulseIcon.classList.toggle('animate-pulse', state.timerRunning);
+        showToast(
+          state.timerRunning ? 'நேரக்கணிப்பு தொடர்கிறது' : 'நேரக்கணிப்பு நிறுத்தப்பட்டது',
+          state.timerRunning ? 'Lab session timer resumed' : 'Lab session timer paused',
+          state.timerRunning ? 'play_circle' : 'pause_circle'
+        );
+      });
+
+      document.getElementById('btn-global-reset').addEventListener('click', () => {
+        state.timerSeconds = 0;
+        timerDisplay.textContent = '00:00:00';
+        resetChemistryFlask();
+        state.phys.oscCount = 0;
+        updateSidebarSensors();
+        showToast('ஆய்வகம் மீட்டமைக்கப்பட்டது', 'Session timer & active apparatus reset to zero', 'restart_alt');
+      });
+
+      document.getElementById('btn-fullscreen').addEventListener('click', () => {
+        const iconFs = document.getElementById('icon-fullscreen');
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+          iconFs.textContent = 'fullscreen_exit';
+        } else {
+          document.exitFullscreen().catch(() => {});
+          iconFs.textContent = 'fullscreen';
+        }
+      });
+
+      // Mobile Sidebar Toggle
+      document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+        const sb = document.getElementById('app-sidebar');
+        sb.classList.toggle('-translate-x-full');
+      });
+
+      // Language Switcher
+      const langBtnTa = document.getElementById('lang-btn-ta');
+      const langBtnEn = document.getElementById('lang-btn-en');
+      const langDotTa = document.getElementById('lang-dot-ta');
+      const langDotEn = document.getElementById('lang-dot-en');
+
+      function setLanguageMode(lang) {
+        state.lang = lang;
+        if (lang === 'ta') {
+          document.body.classList.remove('lang-en');
+          langBtnTa.className = 'px-2.5 py-1 rounded-full text-label-sm font-semibold bg-primary-container text-on-primary-fixed shadow-[0_0_8px_#00f2fe] transition-all flex items-center gap-1 leading-none';
+          langBtnEn.className = 'px-2.5 py-1 rounded-full text-label-sm font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-1 leading-none';
+          langDotTa.classList.remove('hidden');
+          langDotEn.classList.add('hidden');
+          showToast('தமிழ் + ஆங்கில இருமொழி பயன்முறை', 'Switched to Bilingual Tamil & English interface', 'translate');
+        } else {
+          document.body.classList.add('lang-en');
+          langBtnEn.className = 'px-2.5 py-1 rounded-full text-label-sm font-semibold bg-primary-container text-on-primary-fixed shadow-[0_0_8px_#00f2fe] transition-all flex items-center gap-1 leading-none';
+          langBtnTa.className = 'px-2.5 py-1 rounded-full text-label-sm font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-1 leading-none';
+          langDotEn.classList.remove('hidden');
+          langDotTa.classList.add('hidden');
+          showToast('English Interface Active', 'Compact English-focused mode enabled', 'language');
+        }
+      }
+
+      langBtnTa.addEventListener('click', () => setLanguageMode('ta'));
+      langBtnEn.addEventListener('click', () => setLanguageMode('en'));
+
+      // -----------------------------------------------------------
+      // 4. NAVIGATION & EXPERIMENT SWITCHING
+      // -----------------------------------------------------------
+      const views = {
+        'dashboard': document.getElementById('view-dashboard'),
+        'interactive-workbench': document.getElementById('view-interactive-workbench'),
+        'data-visualizer': document.getElementById('view-data-visualizer'),
+        'lab-notebook': document.getElementById('view-lab-notebook'),
+        'theory-and-formulas': document.getElementById('view-theory-and-formulas')
+      };
+
+      function switchView(viewKey) {
+        if (!views[viewKey]) return;
+        state.currentView = viewKey;
+        Object.keys(views).forEach(k => {
+          if (k === viewKey) {
+            views[k].classList.remove('hidden');
+            views[k].classList.add('flex');
+          } else {
+            views[k].classList.add('hidden');
+            views[k].classList.remove('flex');
+          }
+        });
+
+        // Update Sidebar Active State
+        document.querySelectorAll('#sidebar-nav .nav-item').forEach(link => {
+          const isMatch = link.getAttribute('data-path') === viewKey;
+          if (isMatch) {
+            link.className = 'nav-item bg-surface-container text-primary border-l-2 border-primary-container px-space-md py-space-sm rounded-lg flex items-center justify-between transition-all';
+          } else {
+            link.className = 'nav-item text-on-surface-variant hover:bg-surface-container hover:text-on-surface px-space-md py-space-sm rounded-lg flex items-center justify-between transition-all';
+          }
+        });
+
+        // Close mobile sidebar if open
+        document.getElementById('app-sidebar').classList.add('-translate-x-full');
+
+        if (viewKey === 'data-visualizer') {
+          renderMainAnalyticalChart(state.activeExp);
+        } else if (viewKey === 'lab-notebook') {
+          renderNotebookEntries('all');
+        } else if (viewKey === 'interactive-workbench') {
+          resizeCanvases();
+        }
+      }
+
+      document.querySelectorAll('#sidebar-nav .nav-item').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          switchView(link.getAttribute('data-path'));
+        });
+      });
+
+      document.getElementById('brand-home-btn').addEventListener('click', () => switchView('dashboard'));
+
+      document.querySelectorAll('[data-goto-view]').forEach(btn => {
+        btn.addEventListener('click', () => switchView(btn.getAttribute('data-goto-view')));
+      });
+
+      // Experiment Metadata
+      const expMeta = {
+        chem: {
+          code: 'EXP-04',
+          icon: 'science',
+          breadcrumbSubj: 'வேதியியல் / CHEMISTRY',
+          breadcrumbExp: 'அமில-கார ஆய்வு (EXP-04)',
+          titleTa: 'சோதனை 04: அமில-கார நடுநிலையாக்கல்',
+          titleEn: 'Exp 04: Acid-Base Titration & Calorimetry',
+          heading: 'சோதனை 04: அமில-கார நடுநிலையாக்கல் (Acid-Base Titration & Calorimetry)'
+        },
+        phys: {
+          code: 'EXP-02',
+          icon: 'motion_mode',
+          breadcrumbSubj: 'இயற்பியல் / PHYSICS',
+          breadcrumbExp: 'தனி ஊசல் இயக்கம் (EXP-02)',
+          titleTa: 'சோதனை 02: தனி ஊசல் இயக்கம் & முடுக்கம்',
+          titleEn: 'Exp 02: Simple Pendulum & Gravitational Field',
+          heading: 'சோதனை 02: தனி ஊசல் இயக்கம் & புவியீர்ப்பு முடுக்கம் (Simple Pendulum)'
+        },
+        bio: {
+          code: 'EXP-03',
+          icon: 'biotech',
+          breadcrumbSubj: 'உயிரியல் / BIOLOGY',
+          breadcrumbExp: 'ஒளிச்சேர்க்கை வீதம் (EXP-03)',
+          titleTa: 'சோதனை 03: ஒளிச்சேர்க்கை & ஒளிச்செறிவு',
+          titleEn: 'Exp 03: Hydrilla Photosynthesis Rate (1/d²)',
+          heading: 'சோதனை 03: ஹைட்ரில்லா ஒளிச்சேர்க்கை & ஒளிச்செறிவு (Photosynthesis Rate)'
+        }
+      };
+
+      function selectActiveExperiment(expKey, openWorkbench = false) {
+        if (!expMeta[expKey]) return;
+        state.activeExp = expKey;
+        const meta = expMeta[expKey];
+
+        // Update Header Dropdown & Breadcrumb
+        document.getElementById('exp-switcher-icon').textContent = meta.icon;
+        document.getElementById('exp-switcher-title-ta').textContent = meta.titleTa;
+        document.getElementById('exp-switcher-title-en').textContent = meta.titleEn;
+        document.getElementById('header-breadcrumb-subject').textContent = meta.breadcrumbSubj;
+        document.getElementById('header-breadcrumb-exp').textContent = meta.breadcrumbExp;
+        document.getElementById('workbench-active-heading').textContent = meta.heading;
+        document.getElementById('sidebar-sensor-exp').textContent = meta.code;
+
+        // Toggle Workbench Simulator Bays
+        const bays = {
+          chem: document.getElementById('sim-bay-chem'),
+          phys: document.getElementById('sim-bay-phys'),
+          bio: document.getElementById('sim-bay-bio')
+        };
+        Object.keys(bays).forEach(k => {
+          if (k === expKey) {
+            bays[k].classList.remove('hidden');
+            bays[k].classList.add('grid');
+          } else {
+            bays[k].classList.add('hidden');
+            bays[k].classList.remove('grid');
+          }
+        });
+
+        // Update Workbench Tab Pills
+        document.querySelectorAll('.wb-exp-tab').forEach(tab => {
+          if (tab.getAttribute('data-exp-select') === expKey) {
+            tab.className = 'wb-exp-tab px-3 py-1.5 rounded-md font-label-sm text-label-sm bg-primary-container text-on-primary-fixed font-bold transition-all flex items-center gap-1.5';
+          } else {
+            tab.className = 'wb-exp-tab px-3 py-1.5 rounded-md font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5';
+          }
+        });
+
+        updateSidebarSensors();
+        if (openWorkbench) {
+          switchView('interactive-workbench');
+        } else if (state.currentView === 'data-visualizer') {
+          renderMainAnalyticalChart(expKey);
+        }
+        setTimeout(resizeCanvases, 50);
+      }
+
+      // Header Experiment Dropdown Toggle
+      const expSwitcherBtn = document.getElementById('exp-switcher-btn');
+      const expDropdownMenu = document.getElementById('exp-dropdown-menu');
+      const expChevron = document.getElementById('exp-switcher-chevron');
+
+      expSwitcherBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = expDropdownMenu.classList.toggle('hidden');
+        expChevron.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+
+      document.addEventListener('click', () => {
+        expDropdownMenu.classList.add('hidden');
+        expChevron.style.transform = 'rotate(0deg)';
+      });
+
+      document.querySelectorAll('[data-exp-select]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expKey = btn.getAttribute('data-exp-select');
+          selectActiveExperiment(expKey, true);
+          showToast(expMeta[expKey].titleTa, `Loaded ${expMeta[expKey].titleEn}`, expMeta[expKey].icon);
+        });
+      });
+
+      // Dashboard Card Buttons ("Launch" & "Log")
+      document.querySelectorAll('[data-action="launch-sim"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expKey = btn.getAttribute('data-exp');
+          selectActiveExperiment(expKey, true);
+          showToast(expMeta[expKey].titleTa, 'Interactive Virtual Workbench Ready', 'rocket_launch');
+        });
+      });
+
+      document.querySelectorAll('[data-action="open-log"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expKey = btn.getAttribute('data-exp');
+          selectActiveExperiment(expKey, false);
+          switchView('lab-notebook');
+          renderNotebookEntries(expKey);
+          showToast('ஆய்வுக் குறிப்பேடு திறக்கப்பட்டது', `Filtered Lab Notebook to ${expMeta[expKey].code}`, 'edit_note');
+        });
+      });
+
+      // -----------------------------------------------------------
+      // 5. SIDEBAR LIVE TELEMETRY UPDATER
+      // -----------------------------------------------------------
+      function updateSidebarSensors() {
+        const tempEl = document.getElementById('sidebar-sensor-temp');
+        const primEl = document.getElementById('sidebar-sensor-primary');
+        const label2Ta = document.getElementById('sensor-2-label-ta');
+        const label2En = document.getElementById('sensor-2-label-en');
+
+        if (state.activeExp === 'chem') {
+          const kelvin = (state.chem.tempC + 273.15).toFixed(2);
+          tempEl.textContent = `${kelvin} K`;
+          label2Ta.textContent = 'pH அளவுமானி';
+          label2En.textContent = 'pH Sensor Probe';
+          primEl.textContent = `${state.chem.pH.toFixed(2)} pH`;
+        } else if (state.activeExp === 'phys') {
+          tempEl.textContent = '298.15 K';
+          label2Ta.textContent = 'அலைவுக்காலம் (T)';
+          label2En.textContent = 'Photogate Period';
+          const T = 2 * Math.PI * Math.sqrt(state.phys.lengthM / state.phys.gravity);
+          primEl.textContent = `${T.toFixed(2)} s`;
+        } else if (state.activeExp === 'bio') {
+          tempEl.textContent = '298.15 K';
+          label2Ta.textContent = 'ஆக்ஸிஜன் குமிழ்கள்';
+          label2En.textContent = 'O₂ Bubble Sensor';
+          primEl.textContent = `${state.bio.bubbleRate} /min`;
+        }
+
+        // Update total logged points badge
+        const totalLogs = state.chem.logs.length + state.phys.logs.length + state.bio.logs.length;
+        document.getElementById('sidebar-log-badge').textContent = totalLogs;
+        document.getElementById('dashboard-total-points-label').innerHTML = `<span class="ta-text">தரவுப் புள்ளிகள்: ${totalLogs} பதிவுகள் </span>(${totalLogs} Data Points Logged)`;
+        document.getElementById('card-chem-log-count').textContent = `${state.chem.logs.length} சோதனைப் புள்ளிகள் பதிவு`;
+        document.getElementById('card-phys-log-count').textContent = `${state.phys.logs.length} சோதனைகள் சரிபார்க்கப்பட்டன`;
+        document.getElementById('card-bio-log-count').textContent = `${state.bio.logs.length} தூர நிலைகள் சோதனை`;
+      }
+
+      // -----------------------------------------------------------
+      // 6. SIMULATOR A: CHEMISTRY ACID-BASE TITRATION ENGINE
+      // -----------------------------------------------------------
+      function calculateTitrationState(volNaOH) {
+        const Va = 25.0; // mL of 0.10 M HCl
+        const Ca = 0.10;
+        const Cb = 0.10;
+        const Vb = Math.max(0, Math.min(50, volNaOH));
+        const Vtot = Va + Vb;
+
+        let pH = 7.00;
+        const diff = Va * Ca - Vb * Cb; // mmol H+ excess
+        if (Math.abs(diff) < 0.005) {
+          pH = 7.02; // Equivalence point
+        } else if (diff > 0) {
+          const H = diff / Vtot;
+          pH = Math.max(1.0, -Math.log10(H));
+        } else {
+          const OH = (-diff) / Vtot;
+          const pOH = -Math.log10(OH);
+          pH = Math.min(13.0, 14.0 - pOH);
+        }
+
+        // Calorimetry Temperature: peaks at Vb = 25.0 mL (+6.40 °C), then cools slightly with excess volume dilution
+        let deltaT = 0;
+        if (Vb <= 25.0) {
+          deltaT = 6.40 * (Vb / 25.0);
+        } else {
+          deltaT = 6.40 * (50.0 / Vtot);
+        }
+        const tempC = 25.0 + deltaT;
+
+        return { Vb, pH, tempC, deltaT };
+      }
+
+      function getIndicatorColor(pH, indicator) {
+        if (indicator === 'phenolphthalein') {
+          if (pH < 8.2) return { fill: 'rgba(200, 245, 255, 0.22)', badge: 'அமில ஊடகம் • Colorless (pH < 8.2)' };
+          if (pH <= 10.0) return { fill: 'rgba(244, 114, 182, 0.55)', badge: 'இறுதி நிலை! • Pale Pink Endpoint (pH 8.2–10)' };
+          return { fill: 'rgba(219, 39, 119, 0.78)', badge: 'கார ஊடகம் • Deep Magenta (Excess Base)' };
+        } else if (indicator === 'methylorange') {
+          if (pH < 3.1) return { fill: 'rgba(239, 68, 68, 0.65)', badge: 'அமில ஊடகம் • Red (pH < 3.1)' };
+          if (pH <= 4.4) return { fill: 'rgba(249, 115, 22, 0.65)', badge: 'நிறமாற்றம் • Orange Transition' };
+          return { fill: 'rgba(250, 204, 21, 0.65)', badge: 'கார ஊடகம் • Yellow (pH > 4.4)' };
+        } else {
+          // Bromothymol blue
+          if (pH < 6.0) return { fill: 'rgba(250, 204, 21, 0.6)', badge: 'அமில ஊடகம் • Yellow (pH < 6.0)' };
+          if (pH <= 7.6) return { fill: 'rgba(16, 185, 129, 0.65)', badge: 'நடுநிலை • Green Equivalence (pH 7.0)' };
+          return { fill: 'rgba(59, 130, 246, 0.7)', badge: 'கார ஊடகம் • Blue (pH > 7.6)' };
+        }
+      }
+
+      function updateChemistryUI(animateDrop = false) {
+        const res = calculateTitrationState(state.chem.volNaOH);
+        state.chem.pH = res.pH;
+        state.chem.tempC = res.tempC;
+
+        // Readouts
+        document.getElementById('chem-readout-vol').textContent = `${res.Vb.toFixed(2)} mL`;
+        document.getElementById('chem-readout-ph').textContent = `${res.pH.toFixed(2)} pH`;
+        document.getElementById('chem-readout-temp').textContent = `${res.tempC.toFixed(2)} °C`;
+        document.getElementById('chem-readout-kelvin').textContent = `${(res.tempC + 273.15).toFixed(2)} K (ΔT +${res.deltaT.toFixed(2)}°C)`;
+
+        // Slider & Burette level
+        document.getElementById('chem-vol-slider').value = res.Vb;
+        document.getElementById('chem-slider-label').textContent = `${res.Vb.toFixed(2)} / 50.00 mL`;
+        const burettePct = Math.max(4, 100 - (res.Vb / 50) * 92);
+        document.getElementById('chem-burette-liquid').style.height = `${burettePct}%`;
+
+        // Flask liquid height & color
+        const flaskY = 72 - (res.Vb / 50) * 24;
+        const flaskHeight = 120 - flaskY;
+        const flaskLiquid = document.getElementById('chem-flask-liquid');
+        const flaskMeniscus = document.getElementById('chem-flask-meniscus');
+        flaskLiquid.setAttribute('y', flaskY);
+        flaskLiquid.setAttribute('height', flaskHeight);
+        flaskMeniscus.setAttribute('cy', flaskY);
+
+        const ind = getIndicatorColor(res.pH, state.chem.indicator);
+        flaskLiquid.setAttribute('fill', ind.fill);
+        document.getElementById('chem-endpoint-badge').textContent = ind.badge;
+
+        if (animateDrop) {
+          const drop = document.getElementById('chem-falling-drop');
+          const handle = document.getElementById('chem-stopcock-handle');
+          handle.style.transform = 'rotate(90deg)';
+          drop.classList.remove('animate-drop');
+          void drop.offsetWidth;
+          drop.classList.add('animate-drop');
+          setTimeout(() => { handle.style.transform = 'rotate(0deg)'; }, 250);
+        }
+
+        updateSidebarSensors();
+        renderChemMiniSvg();
+      }
+
+      function resetChemistryFlask() {
+        if (state.chem.autoDripInterval) {
+          clearInterval(state.chem.autoDripInterval);
+          state.chem.autoDripInterval = null;
+          document.getElementById('chem-auto-drip-text').textContent = 'Auto-Titrate (தொடர் சொட்டு)';
+        }
+        state.chem.volNaOH = 0.0;
+        updateChemistryUI(false);
+      }
+
+      document.querySelectorAll('[data-titrate]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const delta = parseFloat(btn.getAttribute('data-titrate'));
+          state.chem.volNaOH = Math.min(50, Math.round((state.chem.volNaOH + delta) * 100) / 100);
+          updateChemistryUI(true);
+        });
+      });
+
+      document.getElementById('chem-vol-slider').addEventListener('input', (e) => {
+        state.chem.volNaOH = parseFloat(e.target.value);
+        updateChemistryUI(false);
+      });
+
+      document.getElementById('chem-indicator-select').addEventListener('change', (e) => {
+        state.chem.indicator = e.target.value;
+        updateChemistryUI(false);
+      });
+
+      document.getElementById('chem-auto-drip-btn').addEventListener('click', () => {
+        const txt = document.getElementById('chem-auto-drip-text');
+        if (state.chem.autoDripInterval) {
+          clearInterval(state.chem.autoDripInterval);
+          state.chem.autoDripInterval = null;
+          txt.textContent = 'Auto-Titrate (தொடர் சொட்டு)';
+        } else {
+          txt.textContent = 'Stop Auto-Drip (நிறுத்து)';
+          state.chem.autoDripInterval = setInterval(() => {
+            if (state.chem.volNaOH >= 50) {
+              clearInterval(state.chem.autoDripInterval);
+              state.chem.autoDripInterval = null;
+              txt.textContent = 'Auto-Titrate (தொடர் சொட்டு)';
+              return;
+            }
+            // Slow down near equivalence point (24 to 26 mL)
+            const step = (state.chem.volNaOH >= 23.5 && state.chem.volNaOH <= 26.5) ? 0.1 : 0.5;
+            state.chem.volNaOH = Math.min(50, Math.round((state.chem.volNaOH + step) * 100) / 100);
+            updateChemistryUI(true);
+          }, 420);
+        }
+      });
+
+      document.getElementById('chem-reset-btn').addEventListener('click', () => {
+        resetChemistryFlask();
+        showToast('குடுவை மீட்டமைக்கப்பட்டது', 'Conical flask refilled with fresh 25.0 mL 0.1M HCl', 'science');
+      });
+
+      document.getElementById('chem-log-reading-btn').addEventListener('click', () => {
+        const entry = {
+          vol: Number(state.chem.volNaOH.toFixed(2)),
+          pH: Number(state.chem.pH.toFixed(2)),
+          tempC: Number(state.chem.tempC.toFixed(2))
+        };
+        state.chem.logs.push(entry);
+        state.chem.logs.sort((a, b) => a.vol - b.vol);
+        updateSidebarSensors();
+        renderChemMiniSvg();
+        showToast(
+          `வாசிப்பு பதிவு செய்யப்பட்டது (${entry.vol} mL)`,
+          `Logged V = ${entry.vol} mL, pH = ${entry.pH}, T = ${entry.tempC}°C`,
+          'add_chart'
+        );
+      });
+
+      function renderChemMiniSvg() {
+        const svg = document.getElementById('chem-mini-svg');
+        if (!svg) return;
+        const w = 360, h = 150, padL = 32, padR = 14, padT = 14, padB = 24;
+        const plotW = w - padL - padR;
+        const plotH = h - padT - padB;
+
+        // Theoretical sigmoid path
+        let dPath = '';
+        for (let v = 0; v <= 50; v += 0.5) {
+          const st = calculateTitrationState(v);
+          const x = padL + (v / 50) * plotW;
+          const y = padT + plotH - ((st.pH / 14) * plotH);
+          dPath += (v === 0 ? `M${x},${y}` : ` L${x},${y}`);
+        }
+
+        // Current Marker
+        const curX = padL + (state.chem.volNaOH / 50) * plotW;
+        const curY = padT + plotH - ((state.chem.pH / 14) * plotH);
+
+        // Logged points
+        const dots = state.chem.logs.map(pt => {
+          const x = padL + (pt.vol / 50) * plotW;
+          const y = padT + plotH - ((pt.pH / 14) * plotH);
+          return `<circle cx="${x}" cy="${y}" r="3" fill="#c9bfff" />`;
+        }).join('');
+
+        svg.innerHTML = `
+          <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${h - padB}" stroke="#3a494b" stroke-width="1"/>
+          <line x1="${padL}" y1="${h - padB}" x2="${w - padR}" y2="${h - padB}" stroke="#3a494b" stroke-width="1"/>
+          <line x1="${padL}" y1="${padT + plotH * 0.5}" x2="${w - padR}" y2="${padT + plotH * 0.5}" stroke="#3a494b" stroke-dasharray="3,3" stroke-width="0.8"/>
+          <text x="6" y="${padT + 6}" fill="#849495" font-size="9" font-family="JetBrains Mono">pH 14</text>
+          <text x="6" y="${padT + plotH * 0.5 + 3}" fill="#00dce6" font-size="9" font-family="JetBrains Mono">pH 7</text>
+          <text x="${padL}" y="${h - 6}" fill="#849495" font-size="9" font-family="JetBrains Mono">0 mL</text>
+          <text x="${padL + plotW * 0.5 - 14}" y="${h - 6}" fill="#00f2fe" font-size="9" font-family="JetBrains Mono">25 mL</text>
+          <text x="${w - padR - 28}" y="${h - 6}" fill="#849495" font-size="9" font-family="JetBrains Mono">50 mL</text>
+          <path d="${dPath}" fill="none" stroke="#00f2fe" stroke-width="2"/>
+          ${dots}
+          <circle cx="${curX}" cy="${curY}" r="5.5" fill="#00f2fe" stroke="#0a0e16" stroke-width="2"/>
+        `;
+      }
+
+      // -----------------------------------------------------------
+      // 7. SIMULATOR B: PHYSICS SIMPLE PENDULUM ENGINE
+      // -----------------------------------------------------------
+      const physCanvas = document.getElementById('phys-pendulum-canvas');
+      const physCtx = physCanvas.getContext('2d');
+
+      function updatePhysicsParameters() {
+        const L = state.phys.lengthM;
+        const g = state.phys.gravity;
+        const T = 2 * Math.PI * Math.sqrt(L / g);
+        const T2 = T * T;
+
+        document.getElementById('phys-length-val').textContent = `${L.toFixed(2)} m (${Math.round(L * 100)} cm)`;
+        document.getElementById('phys-angle-val').textContent = `${state.phys.angleDeg}°`;
+        document.getElementById('phys-readout-period').textContent = `${T.toFixed(2)} s`;
+        document.getElementById('phys-readout-tsq').textContent = `${T2.toFixed(2)} s²`;
+        document.getElementById('phys-calc-g').textContent = `Calculated g = ${g.toFixed(2)} m/s²`;
+
+        const envNames = {
+          '9.81': 'பூமி • Earth (g = 9.81 m/s²)',
+          '1.62': 'நிலவு • Moon (g = 1.62 m/s²)',
+          '3.72': 'செவ்வாய் • Mars (g = 3.72 m/s²)',
+          '24.79': 'வியாழன் • Jupiter (g = 24.79 m/s²)'
+        };
+        document.getElementById('phys-env-badge').textContent = envNames[String(g)] || `g = ${g} m/s²`;
+
+        updateSidebarSensors();
+        renderPhysMiniSvg();
+      }
+
+      document.getElementById('phys-length-slider').addEventListener('input', (e) => {
+        state.phys.lengthM = parseFloat(e.target.value);
+        updatePhysicsParameters();
+      });
+
+      document.getElementById('phys-angle-slider').addEventListener('input', (e) => {
+        state.phys.angleDeg = parseInt(e.target.value, 10);
+        updatePhysicsParameters();
+      });
+
+      document.getElementById('phys-mass-select').addEventListener('change', (e) => {
+        state.phys.massG = parseInt(e.target.value, 10);
+      });
+
+      document.getElementById('phys-gravity-select').addEventListener('change', (e) => {
+        state.phys.gravity = parseFloat(e.target.value);
+        updatePhysicsParameters();
+      });
+
+      document.getElementById('phys-toggle-swing-btn').addEventListener('click', () => {
+        state.phys.swinging = !state.phys.swinging;
+        document.getElementById('phys-toggle-swing-text').textContent = state.phys.swinging ? 'Pause Swing' : 'Resume Swing';
+      });
+
+      document.getElementById('phys-reset-osc-btn').addEventListener('click', () => {
+        state.phys.oscCount = 0;
+        document.getElementById('phys-readout-osc').textContent = '0 cycles';
+      });
+
+      document.getElementById('phys-log-reading-btn').addEventListener('click', () => {
+        const L = Number(state.phys.lengthM.toFixed(2));
+        const g = state.phys.gravity;
+        const T = Number((2 * Math.PI * Math.sqrt(L / g)).toFixed(2));
+        const T2 = Number((T * T).toFixed(2));
+        state.phys.logs.push({ L, T, T2, g });
+        state.phys.logs.sort((a, b) => a.L - b.L);
+        updateSidebarSensors();
+        renderPhysMiniSvg();
+        showToast(
+          `ஊசல் அளவீடு பதிவு (L = ${L}m)`,
+          `Logged L = ${L}m, T = ${T}s, T² = ${T2}s²`,
+          'motion_mode'
+        );
+      });
+
+      function renderPhysMiniSvg() {
+        const svg = document.getElementById('phys-mini-svg');
+        if (!svg) return;
+        const w = 360, h = 140, padL = 32, padR = 14, padT = 14, padB = 24;
+        const plotW = w - padL - padR;
+        const plotH = h - padT - padB;
+
+        const maxL = 1.3;
+        const maxT2 = (4 * Math.PI * Math.PI * maxL) / state.phys.gravity;
+
+        const xEnd = padL + plotW;
+        const yEnd = padT;
+
+        const dots = state.phys.logs.map(pt => {
+          const x = padL + (pt.L / maxL) * plotW;
+          const y = padT + plotH - Math.min(1, pt.T2 / maxT2) * plotH;
+          return `<circle cx="${x}" cy="${y}" r="3.5" fill="#00f2fe"/>`;
+        }).join('');
+
+        svg.innerHTML = `
+          <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${h - padB}" stroke="#3a494b" stroke-width="1"/>
+          <line x1="${padL}" y1="${h - padB}" x2="${w - padR}" y2="${h - padB}" stroke="#3a494b" stroke-width="1"/>
+          <line x1="${padL}" y1="${h - padB}" x2="${xEnd}" y2="${yEnd}" stroke="#c9bfff" stroke-width="2" stroke-dasharray="4,2"/>
+          ${dots}
+          <text x="6" y="${padT + 8}" fill="#c9bfff" font-size="9" font-family="JetBrains Mono">T²(s²)</text>
+          <text x="${w - 60}" y="${h - 6}" fill="#849495" font-size="9" font-family="JetBrains Mono">Length L (m)</text>
+        `;
+      }
+
+      // -----------------------------------------------------------
+      // 8. SIMULATOR C: BIOLOGY HYDRILLA PHOTOSYNTHESIS ENGINE
+      // -----------------------------------------------------------
+      const bioCanvas = document.getElementById('bio-sim-canvas');
+      const bioCtx = bioCanvas.getContext('2d');
+
+      function updateBiologyParameters() {
+        const d = state.bio.distanceCm;
+        const invD2 = 1 / (d * d);
+        // Base rate is 47 bubbles/min at d=10cm, scales with 1/d^2 + baseline
+        const rawRate = (4500 / (d * d) + 2) * state.bio.bicarbFactor * state.bio.spectrumFactor;
+        state.bio.bubbleRate = Math.max(1, Math.round(rawRate));
+
+        document.getElementById('bio-dist-label').textContent = `${d} cm`;
+        document.getElementById('bio-dist-slider').value = d;
+        document.getElementById('bio-readout-dist').textContent = `${d} cm`;
+        document.getElementById('bio-readout-rate').textContent = `${state.bio.bubbleRate} bub/min`;
+        document.getElementById('bio-readout-flux').textContent = `${invD2.toFixed(4)} cm⁻²`;
+
+        updateSidebarSensors();
+        renderBioMiniSvg();
+      }
+
+      document.getElementById('bio-dist-slider').addEventListener('input', (e) => {
+        state.bio.distanceCm = parseInt(e.target.value, 10);
+        updateBiologyParameters();
+      });
+
+      document.querySelectorAll('[data-bio-dist]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.bio.distanceCm = parseInt(btn.getAttribute('data-bio-dist'), 10);
+          updateBiologyParameters();
+        });
+      });
+
+      document.getElementById('bio-bicarb-select').addEventListener('change', (e) => {
+        state.bio.bicarbFactor = parseFloat(e.target.value);
+        updateBiologyParameters();
+      });
+
+      document.getElementById('bio-spectrum-select').addEventListener('change', (e) => {
+        state.bio.spectrumFactor = parseFloat(e.target.value);
+        updateBiologyParameters();
+      });
+
+      document.getElementById('bio-splint-btn').addEventListener('click', () => {
+        state.bio.splintTested = true;
+        const badge = document.getElementById('bio-splint-status');
+        badge.textContent = '🔥 O₂ Verified! (Glowing Splint Relit)';
+        badge.className = 'px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 font-label-sm text-label-sm font-bold';
+        showToast(
+          'தணல் குச்சி சுடர்விட்டு எரிந்தது! (O₂ உறுதி)',
+          'Glowing splint burst into bright flame — Oxygen gas verified!',
+          'local_fire_department'
+        );
+        setTimeout(() => { state.bio.splintTested = false; }, 3500);
+      });
+
+      document.getElementById('bio-log-reading-btn').addEventListener('click', () => {
+        const d = state.bio.distanceCm;
+        const invD2 = Number((1 / (d * d)).toFixed(4));
+        const rate = state.bio.bubbleRate;
+        state.bio.logs.push({ d, invD2, rate });
+        state.bio.logs.sort((a, b) => a.d - b.d);
+        updateSidebarSensors();
+        renderBioMiniSvg();
+        showToast(
+          `குமிழ் வீதம் பதிவு (d = ${d} cm)`,
+          `Logged Distance = ${d} cm, Rate = ${rate} bubbles/min`,
+          'biotech'
+        );
+      });
+
+      function renderBioMiniSvg() {
+        const svg = document.getElementById('bio-mini-svg');
+        if (!svg) return;
+        const w = 360, h = 140, padL = 32, padR = 14, padT = 14, padB = 24;
+        const plotW = w - padL - padR;
+        const plotH = h - padT - padB;
+
+        let pathD = '';
+        for (let d = 10; d <= 50; d += 2) {
+          const r = (4500 / (d * d) + 2) * state.bio.bicarbFactor * state.bio.spectrumFactor;
+          const x = padL + ((d - 10) / 40) * plotW;
+          const y = padT + plotH - Math.min(1, r / 60) * plotH;
+          pathD += (d === 10 ? `M${x},${y}` : ` L${x},${y}`);
+        }
+
+        const dots = state.bio.logs.map(pt => {
+          const x = padL + ((pt.d - 10) / 40) * plotW;
+          const y = padT + plotH - Math.min(1, pt.rate / 60) * plotH;
+          return `<circle cx="${x}" cy="${y}" r="3.5" fill="#7bd0ff"/>`;
+        }).join('');
+
+        svg.innerHTML = `
+          <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${h - padB}" stroke="#3a494b" stroke-width="1"/>
+          <line x1="${padL}" y1="${h - padB}" x2="${w - padR}" y2="${h - padB}" stroke="#3a494b" stroke-width="1"/>
+          <path d="${pathD}" fill="none" stroke="#7bd0ff" stroke-width="2"/>
+          ${dots}
+          <text x="4" y="${padT + 8}" fill="#7bd0ff" font-size="9" font-family="JetBrains Mono">Bub/m</text>
+          <text x="${w - 75}" y="${h - 6}" fill="#849495" font-size="9" font-family="JetBrains Mono">Dist d (10-50cm)</text>
+        `;
+      }
+
+      // -----------------------------------------------------------
+      // 9. ANIMATION LOOP FOR PHYSICS & BIOLOGY CANVASES
+      // -----------------------------------------------------------
+      function resizeCanvases() {
+        [physCanvas, bioCanvas].forEach(c => {
+          if (c && c.parentElement) {
+            const rect = c.parentElement.getBoundingClientRect();
+            if (rect.width > 0 && rect.height > 0) {
+              c.width = rect.width;
+              c.height = rect.height;
+            }
+          }
+        });
+      }
+      window.addEventListener('resize', resizeCanvases);
+
+      let lastFrameTime = performance.now();
+      let prevThetaSign = 1;
+
+      function animateSimulators(now) {
+        const dt = Math.min(0.05, (now - lastFrameTime) / 1000);
+        lastFrameTime = now;
+
+        // Draw Physics Pendulum if visible
+        if (physCanvas.width > 0 && state.currentView === 'interactive-workbench' && state.activeExp === 'phys') {
+          const w = physCanvas.width;
+          const h = physCanvas.height;
+          physCtx.clearRect(0, 0, w, h);
+
+          const pivotX = w * 0.42;
+          const pivotY = 36;
+          const pixelLength = 80 + state.phys.lengthM * 185;
+          const omega = Math.sqrt(state.phys.gravity / state.phys.lengthM);
+
+          if (state.phys.swinging) {
+            state.phys.simTime += dt;
+          }
+          const theta0 = (state.phys.angleDeg * Math.PI) / 180;
+          const theta = theta0 * Math.cos(omega * state.phys.simTime);
+
+          // Photogate crossing detection
+          const currentSign = theta >= 0 ? 1 : -1;
+          if (state.phys.swinging && currentSign !== prevThetaSign && prevThetaSign < 0) {
+            state.phys.oscCount++;
+            document.getElementById('phys-readout-osc').textContent = `${state.phys.oscCount} cycles`;
+          }
+          prevThetaSign = currentSign;
+
+          // Protractor Arc
+          physCtx.strokeStyle = 'rgba(132, 148, 149, 0.25)';
+          physCtx.lineWidth = 1.5;
+          physCtx.beginPath();
+          physCtx.arc(pivotX, pivotY, 60, Math.PI * 0.35, Math.PI * 0.65);
+          physCtx.stroke();
+
+          // Equilibrium Vertical Dashed Line & Laser Photogate at bottom
+          physCtx.setLineDash([4, 4]);
+          physCtx.strokeStyle = 'rgba(0, 242, 254, 0.3)';
+          physCtx.beginPath();
+          physCtx.moveTo(pivotX, pivotY);
+          physCtx.lineTo(pivotX, pivotY + pixelLength + 30);
+          physCtx.stroke();
+          physCtx.setLineDash([]);
+
+          const bobX = pivotX + pixelLength * Math.sin(theta);
+          const bobY = pivotY + pixelLength * Math.cos(theta);
+
+          // Trajectory Arc
+          physCtx.strokeStyle = 'rgba(201, 191, 255, 0.3)';
+          physCtx.lineWidth = 2;
+          physCtx.beginPath();
+          physCtx.arc(pivotX, pivotY, pixelLength, Math.PI / 2 - theta0, Math.PI / 2 + theta0);
+          physCtx.stroke();
+
+          // Photogate Sensor Gate
+          const gateY = pivotY + pixelLength;
+          physCtx.fillStyle = '#00f2fe';
+          physCtx.fillRect(pivotX - 38, gateY - 3, 8, 6);
+          physCtx.fillRect(pivotX + 30, gateY - 3, 8, 6);
+          physCtx.strokeStyle = Math.abs(theta) < 0.03 ? '#ff5449' : 'rgba(0, 242, 254, 0.65)';
+          physCtx.beginPath();
+          physCtx.moveTo(pivotX - 30, gateY);
+          physCtx.lineTo(pivotX + 30, gateY);
+          physCtx.stroke();
+
+          // String
+          physCtx.strokeStyle = '#dfe2ee';
+          physCtx.lineWidth = 2;
+          physCtx.beginPath();
+          physCtx.moveTo(pivotX, pivotY);
+          physCtx.lineTo(bobX, bobY);
+          physCtx.stroke();
+
+          // Ceiling Mount
+          physCtx.fillStyle = '#31353e';
+          physCtx.fillRect(pivotX - 40, pivotY - 8, 80, 8);
+
+          // Brass / Steel Bob
+          const bobRadius = 12 + (state.phys.massG / 200) * 6;
+          const grad = physCtx.createRadialGradient(bobX - 4, bobY - 4, 2, bobX, bobY, bobRadius);
+          grad.addColorStop(0, '#fff3b0');
+          grad.addColorStop(1, '#c9bfff');
+          physCtx.fillStyle = grad;
+          physCtx.beginPath();
+          physCtx.arc(bobX, bobY, bobRadius, 0, Math.PI * 2);
+          physCtx.fill();
+        }
+
+        // Draw Biology Hydrilla Setup if visible
+        if (bioCanvas.width > 0 && state.currentView === 'interactive-workbench' && state.activeExp === 'bio') {
+          const w = bioCanvas.width;
+          const h = bioCanvas.height;
+          bioCtx.clearRect(0, 0, w, h);
+
+          const beakerX = 110;
+          const beakerBottom = h - 35;
+          const beakerTop = h - 250;
+
+          // Ruler Line at bottom
+          const rulerStartX = beakerX + 70;
+          const rulerEndX = w - 60;
+          bioCtx.strokeStyle = '#3a494b';
+          bioCtx.lineWidth = 2;
+          bioCtx.beginPath();
+          bioCtx.moveTo(rulerStartX, beakerBottom);
+          bioCtx.lineTo(rulerEndX, beakerBottom);
+          bioCtx.stroke();
+
+          // Lamp Position mapped from 10cm to 50cm
+          const tDist = (state.bio.distanceCm - 10) / 40;
+          const lampX = rulerStartX + 40 + tDist * Math.max(80, (rulerEndX - rulerStartX - 90));
+          const lampY = beakerBottom - 95;
+
+          // Light Cone Glow
+          const coneAlpha = Math.max(0.06, 0.35 * (1 - tDist * 0.75));
+          const coneGrad = bioCtx.createLinearGradient(lampX, lampY, beakerX, lampY);
+          const beamColor = state.bio.spectrumFactor === 1.15 ? `rgba(236, 72, 153, ${coneAlpha})` :
+                            state.bio.spectrumFactor === 0.25 ? `rgba(34, 197, 94, ${coneAlpha})` :
+                            `rgba(111, 246, 255, ${coneAlpha})`;
+          coneGrad.addColorStop(0, beamColor);
+          coneGrad.addColorStop(1, 'rgba(0, 242, 254, 0.01)');
+          bioCtx.fillStyle = coneGrad;
+          bioCtx.beginPath();
+          bioCtx.moveTo(lampX, lampY - 14);
+          bioCtx.lineTo(beakerX - 40, beakerTop);
+          bioCtx.lineTo(beakerX - 40, beakerBottom);
+          bioCtx.lineTo(lampX, lampY + 14);
+          bioCtx.closePath();
+          bioCtx.fill();
+
+          // Draw Lamp Fixture
+          bioCtx.fillStyle = '#262a33';
+          bioCtx.strokeStyle = '#00f2fe';
+          bioCtx.lineWidth = 2;
+          bioCtx.beginPath();
+          bioCtx.arc(lampX + 12, lampY, 18, -Math.PI / 2, Math.PI / 2, true);
+          bioCtx.fill();
+          bioCtx.stroke();
+          bioCtx.fillStyle = '#dfe2ee';
+          bioCtx.font = '11px JetBrains Mono';
+          bioCtx.fillText(`d = ${state.bio.distanceCm} cm`, lampX - 18, beakerBottom + 18);
+
+          // Beaker Water
+          bioCtx.fillStyle = 'rgba(0, 220, 230, 0.12)';
+          bioCtx.fillRect(beakerX - 50, beakerTop + 25, 100, beakerBottom - beakerTop - 25);
+
+          // Hydrilla Plant Fronds inside Funnel
+          bioCtx.strokeStyle = '#22c55e';
+          bioCtx.lineWidth = 3;
+          [-14, 0, 14].forEach(offset => {
+            bioCtx.beginPath();
+            bioCtx.moveTo(beakerX + offset, beakerBottom - 10);
+            bioCtx.quadraticCurveTo(beakerX + offset * 1.4, beakerBottom - 55, beakerX + offset * 0.4, beakerBottom - 95);
+            bioCtx.stroke();
+          });
+
+          // Inverted Funnel & Test Tube
+          bioCtx.strokeStyle = 'rgba(178, 225, 255, 0.7)';
+          bioCtx.lineWidth = 2;
+          bioCtx.beginPath();
+          bioCtx.moveTo(beakerX - 38, beakerBottom - 8);
+          bioCtx.lineTo(beakerX - 8, beakerBottom - 95);
+          bioCtx.lineTo(beakerX - 8, beakerTop + 10);
+          bioCtx.lineTo(beakerX + 8, beakerTop + 10);
+          bioCtx.lineTo(beakerX + 8, beakerBottom - 95);
+          bioCtx.lineTo(beakerX + 38, beakerBottom - 8);
+          bioCtx.stroke();
+
+          // Beaker Outline
+          bioCtx.strokeStyle = '#6ff6ff';
+          bioCtx.lineWidth = 2.5;
+          bioCtx.strokeRect(beakerX - 50, beakerTop, 100, beakerBottom - beakerTop);
+
+          // Spawn & Animate Rising O2 Micro-Bubbles proportional to bubbleRate
+          if (Math.random() < (state.bio.bubbleRate / 60) * dt * 4.5) {
+            state.bio.bubbles.push({
+              x: beakerX + (Math.random() * 10 - 5),
+              y: beakerBottom - 85,
+              r: 2 + Math.random() * 2.2,
+              vy: 38 + Math.random() * 22
+            });
+          }
+
+          bioCtx.fillStyle = '#6ff6ff';
+          state.bio.bubbles = state.bio.bubbles.filter(b => {
+            b.y -= b.vy * dt;
+            bioCtx.beginPath();
+            bioCtx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+            bioCtx.fill();
+            return b.y > beakerTop + 18;
+          });
+
+          // Glowing Splint Flame Effect if triggered
+          if (state.bio.splintTested) {
+            bioCtx.fillStyle = '#f59e0b';
+            bioCtx.beginPath();
+            bioCtx.arc(beakerX, beakerTop - 6, 12 + Math.random() * 4, 0, Math.PI * 2);
+            bioCtx.fill();
+            bioCtx.fillStyle = '#fef08a';
+            bioCtx.beginPath();
+            bioCtx.arc(beakerX, beakerTop - 6, 6, 0, Math.PI * 2);
+            bioCtx.fill();
+          }
+        }
+
+        requestAnimationFrame(animateSimulators);
+      }
+
+      // -----------------------------------------------------------
+      // 10. VIEW 3: DATA VISUALIZER CHARTS & EXPORT
+      // -----------------------------------------------------------
+      function renderMainAnalyticalChart(expKey) {
+        const svg = document.getElementById('main-analytical-svg');
+        const head = document.getElementById('data-table-head');
+        const body = document.getElementById('data-table-body');
+        const title = document.getElementById('main-chart-title');
+        const subtitle = document.getElementById('main-chart-subtitle');
+        const badge = document.getElementById('main-chart-r2');
+
+        document.querySelectorAll('.chart-tab-btn').forEach(btn => {
+          if (btn.getAttribute('data-chart-tab') === expKey) {
+            btn.className = 'chart-tab-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-primary-container text-on-primary-fixed font-bold';
+          } else {
+            btn.className = 'chart-tab-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface';
+          }
+        });
+
+        const w = 680, h = 340, padL = 55, padR = 45, padT = 25, padB = 42;
+        const plotW = w - padL - padR;
+        const plotH = h - padT - padB;
+
+        if (expKey === 'chem') {
+          title.textContent = 'அமில-கார நடுநிலையாக்கல் வளைவு • Acid-Base Titration & Thermogram';
+          subtitle.textContent = 'pH vs Volume of 0.1M NaOH (Cyan) and Calorimeter Temperature °C (Purple).';
+          badge.textContent = 'Equivalence: 25.0 mL (pH 7.02)';
+
+          let phPath = '', tempPath = '';
+          for (let v = 0; v <= 50; v += 0.5) {
+            const st = calculateTitrationState(v);
+            const x = padL + (v / 50) * plotW;
+            const yPh = padT + plotH - (st.pH / 14) * plotH;
+            const yTemp = padT + plotH - ((st.tempC - 24) / 10) * plotH;
+            phPath += (v === 0 ? `M${x},${yPh}` : ` L${x},${yPh}`);
+            tempPath += (v === 0 ? `M${x},${yTemp}` : ` L${x},${yTemp}`);
+          }
+
+          const circles = state.chem.logs.map(pt => {
+            const x = padL + (pt.vol / 50) * plotW;
+            const y = padT + plotH - (pt.pH / 14) * plotH;
+            return `<circle cx="${x}" cy="${y}" r="4.5" fill="#00f2fe" stroke="#0a0e16" stroke-width="1.5"/>`;
+          }).join('');
+
+          svg.innerHTML = `
+            <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${h - padB}" stroke="#3a494b" stroke-width="1.5"/>
+            <line x1="${padL}" y1="${h - padB}" x2="${w - padR}" y2="${h - padB}" stroke="#3a494b" stroke-width="1.5"/>
+            <line x1="${padL + plotW * 0.5}" y1="${padT}" x2="${padL + plotW * 0.5}" y2="${h - padB}" stroke="#00f2fe" stroke-dasharray="4,4" stroke-opacity="0.4"/>
+            <path d="${tempPath}" fill="none" stroke="#c9bfff" stroke-width="2" stroke-dasharray="5,3"/>
+            <path d="${phPath}" fill="none" stroke="#00f2fe" stroke-width="3"/>
+            ${circles}
+            <text x="12" y="${padT + 10}" fill="#00f2fe" font-size="11" font-family="JetBrains Mono">pH 14</text>
+            <text x="12" y="${padT + plotH * 0.5}" fill="#00f2fe" font-size="11" font-family="JetBrains Mono">pH 7.0</text>
+            <text x="12" y="${h - padB}" fill="#00f2fe" font-size="11" font-family="JetBrains Mono">pH 0</text>
+            <text x="${padL + plotW * 0.5 - 45}" y="${h - 12}" fill="#dfe2ee" font-size="11" font-family="JetBrains Mono">NaOH Volume (0–50 mL)</text>
+          `;
+
+          head.innerHTML = `<tr><th class="p-2">V (mL)</th><th class="p-2">pH</th><th class="p-2">Temp (°C)</th></tr>`;
+          body.innerHTML = state.chem.logs.map(r => `
+            <tr>
+              <td class="p-2 font-telemetry-display text-primary">${r.vol.toFixed(1)}</td>
+              <td class="p-2 font-telemetry-display text-secondary">${r.pH.toFixed(2)}</td>
+              <td class="p-2 font-telemetry-display text-tertiary-fixed-dim">${r.tempC.toFixed(2)}</td>
+            </tr>
+          `).join('');
+
+        } else if (expKey === 'phys') {
+          title.textContent = 'தனி ஊசல் நேர்க்கோட்டு வரைபடம் • Simple Pendulum T² vs Length L';
+          subtitle.textContent = 'Linear Regression Slope = 4π²/g = 4.024 s²/m → Calculated g = 9.81 m/s².';
+          badge.textContent = 'R² = 0.9998 (Err: 0.10%)';
+
+          const maxL = 1.3;
+          const maxT2 = 5.5;
+          const x2 = padL + (1.25 / maxL) * plotW;
+          const y2 = padT + plotH - ((4.024 * 1.25) / maxT2) * plotH;
+
+          const circles = state.phys.logs.map(pt => {
+            const x = padL + (pt.L / maxL) * plotW;
+            const y = padT + plotH - (pt.T2 / maxT2) * plotH;
+            return `<circle cx="${x}" cy="${y}" r="5" fill="#c9bfff" stroke="#0a0e16" stroke-width="1.5"/>`;
+          }).join('');
+
+          svg.innerHTML = `
+            <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${h - padB}" stroke="#3a494b" stroke-width="1.5"/>
+            <line x1="${padL}" y1="${h - padB}" x2="${w - padR}" y2="${h - padB}" stroke="#3a494b" stroke-width="1.5"/>
+            <line x1="${padL}" y1="${h - padB}" x2="${x2}" y2="${y2}" stroke="#c9bfff" stroke-width="2.5"/>
+            ${circles}
+            <text x="10" y="${padT + 10}" fill="#c9bfff" font-size="11" font-family="JetBrains Mono">T² (s²)</text>
+            <text x="${padL + plotW * 0.4}" y="${h - 12}" fill="#dfe2ee" font-size="11" font-family="JetBrains Mono">String Length L (m)</text>
+          `;
+
+          head.innerHTML = `<tr><th class="p-2">L (m)</th><th class="p-2">T (s)</th><th class="p-2">T² (s²)</th></tr>`;
+          body.innerHTML = state.phys.logs.map(r => `
+            <tr>
+              <td class="p-2 font-telemetry-display text-primary">${r.L.toFixed(2)}</td>
+              <td class="p-2 font-telemetry-display text-secondary">${r.T.toFixed(2)}</td>
+              <td class="p-2 font-telemetry-display text-tertiary-fixed-dim">${r.T2.toFixed(2)}</td>
+            </tr>
+          `).join('');
+
+        } else {
+          title.textContent = 'ஒளிச்சேர்க்கை வீதம் • Photosynthesis Rate vs Light Distance (d)';
+          subtitle.textContent = 'Oxygen micro-bubble evolution rate follows the Inverse Square Law (I ∝ 1/d²).';
+          badge.textContent = 'Peak: 47 bub/min at 10 cm';
+
+          let curveD = '';
+          for (let d = 10; d <= 50; d += 1) {
+            const r = 4500 / (d * d) + 2;
+            const x = padL + ((d - 10) / 40) * plotW;
+            const y = padT + plotH - (r / 55) * plotH;
+            curveD += (d === 10 ? `M${x},${y}` : ` L${x},${y}`);
+          }
+
+          const circles = state.bio.logs.map(pt => {
+            const x = padL + ((pt.d - 10) / 40) * plotW;
+            const y = padT + plotH - (pt.rate / 55) * plotH;
+            return `<circle cx="${x}" cy="${y}" r="5" fill="#7bd0ff" stroke="#0a0e16" stroke-width="1.5"/>`;
+          }).join('');
+
+          svg.innerHTML = `
+            <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${h - padB}" stroke="#3a494b" stroke-width="1.5"/>
+            <line x1="${padL}" y1="${h - padB}" x2="${w - padR}" y2="${h - padB}" stroke="#3a494b" stroke-width="1.5"/>
+            <path d="${curveD}" fill="none" stroke="#7bd0ff" stroke-width="3"/>
+            ${circles}
+            <text x="8" y="${padT + 10}" fill="#7bd0ff" font-size="11" font-family="JetBrains Mono">Bub/min</text>
+            <text x="${padL + plotW * 0.4}" y="${h - 12}" fill="#dfe2ee" font-size="11" font-family="JetBrains Mono">Lamp Distance d (10–50 cm)</text>
+          `;
+
+          head.innerHTML = `<tr><th class="p-2">d (cm)</th><th class="p-2">1/d²</th><th class="p-2">Rate (bub/m)</th></tr>`;
+          body.innerHTML = state.bio.logs.map(r => `
+            <tr>
+              <td class="p-2 font-telemetry-display text-primary">${r.d}</td>
+              <td class="p-2 font-telemetry-display text-secondary">${r.invD2.toFixed(4)}</td>
+              <td class="p-2 font-telemetry-display text-tertiary-fixed-dim">${r.rate}</td>
+            </tr>
+          `).join('');
+        }
+      }
+
+      document.querySelectorAll('.chart-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expKey = btn.getAttribute('data-chart-tab');
+          state.activeExp = expKey;
+          renderMainAnalyticalChart(expKey);
+        });
+      });
+
+      // CSV Export
+      document.getElementById('btn-export-csv').addEventListener('click', () => {
+        let csv = 'Experiment,Param1,Param2,Param3\n';
+        state.chem.logs.forEach(r => { csv += `Exp04_Chemistry,${r.vol},${r.pH},${r.tempC}\n`; });
+        state.phys.logs.forEach(r => { csv += `Exp02_Physics,${r.L},${r.T},${r.T2}\n`; });
+        state.bio.logs.forEach(r => { csv += `Exp03_Biology,${r.d},${r.invD2},${r.rate}\n`; });
+
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'QuantumLab_MayaLin_Telemetry.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('CSV தரவு பதிவிறக்கப்பட்டது', 'Exported all 3 experiment telemetry tables to CSV', 'download');
+      });
+
+      // -----------------------------------------------------------
+      // 11. VIEW 4: LAB NOTEBOOK ENGINE
+      // -----------------------------------------------------------
+      function renderNotebookEntries(filterExp = 'all') {
+        const container = document.getElementById('nb-entries-container');
+        document.querySelectorAll('.nb-filter-btn').forEach(btn => {
+          if (btn.getAttribute('data-nb-filter') === filterExp) {
+            btn.className = 'nb-filter-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-primary-container text-on-primary-fixed font-bold';
+          } else {
+            btn.className = 'nb-filter-btn px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-container text-on-surface-variant';
+          }
+        });
+
+        const list = filterExp === 'all'
+          ? state.notebook
+          : state.notebook.filter(item => item.exp === filterExp);
+
+        container.innerHTML = list.map(item => `
+          <div class="bg-surface-container-low rounded-xl p-space-md border border-outline-variant/15 flex flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary-fixed font-label-sm text-label-sm">${item.badge}</span>
+              <span class="font-label-sm text-label-sm text-outline">${item.time}</span>
+            </div>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">${item.title}</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">${item.body}</p>
+          </div>
+        `).join('');
+      }
+
+      document.querySelectorAll('.nb-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => renderNotebookEntries(btn.getAttribute('data-nb-filter')));
+      });
+
+      document.getElementById('nb-save-btn').addEventListener('click', () => {
+        const exp = document.getElementById('nb-exp-select').value;
+        const titleInput = document.getElementById('nb-title-input');
+        const bodyInput = document.getElementById('nb-body-input');
+
+        const title = titleInput.value.trim() || 'புதிய ஆய்வக உற்றுநோக்கல் • Lab Observation Entry';
+        const body = bodyInput.value.trim() || `Logged live telemetry reading during ${expMeta[exp].titleEn}.`;
+
+        const badges = {
+          chem: 'வேதியியல் • Exp 04',
+          phys: 'இயற்பியல் • Exp 02',
+          bio: 'உயிரியல் • Exp 03'
+        };
+
+        state.notebook.unshift({
+          id: Date.now(),
+          exp,
+          badge: badges[exp],
+          title,
+          body,
+          time: 'Just now'
+        });
+
+        titleInput.value = '';
+        bodyInput.value = '';
+        renderNotebookEntries('all');
+        showToast('குறிப்பேட்டில் சேமிக்கப்பட்டது', 'New scientific observation added to Maya Lin’s journal', 'bookmark_added');
+      });
+
+      // -----------------------------------------------------------
+      // 12. VIEW 5: INTERACTIVE QUIZ ENGINE
+      // -----------------------------------------------------------
+      document.querySelectorAll('.quiz-opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const qId = btn.getAttribute('data-quiz');
+          const isCorrect = btn.getAttribute('data-ans') === 'correct';
+          state.quizAnswered[qId] = isCorrect ? 1 : 0;
+
+          // Style sibling options
+          document.querySelectorAll(`.quiz-opt[data-quiz="${qId}"]`).forEach(sib => {
+            sib.classList.remove('bg-emerald-500/25', 'border-emerald-400', 'bg-rose-500/25', 'border-rose-400');
+          });
+
+          if (isCorrect) {
+            btn.classList.add('bg-emerald-500/25', 'border', 'border-emerald-400', 'text-emerald-200');
+            showToast('சரியான பதில்! • Correct Answer!', 'Great scientific reasoning, Maya!', 'workspace_premium');
+          } else {
+            btn.classList.add('bg-rose-500/25', 'border', 'border-rose-400', 'text-rose-200');
+            showToast('மீண்டும் முயற்சிக்கவும் • Try Again', 'Review the formula card above and select another answer.', 'help');
+          }
+
+          const score = Object.values(state.quizAnswered).reduce((a, b) => a + b, 0);
+          document.getElementById('quiz-score-badge').textContent = `Score: ${score} / 3`;
+        });
+      });
+
+      // -----------------------------------------------------------
+      // 13. MODALS: SAFETY PROTOCOL, PORTFOLIO EXPORT & UPCOMING
+      // -----------------------------------------------------------
+      const modalBackdrop = document.getElementById('modal-backdrop');
+      const modalBox = document.getElementById('modal-content-box');
+
+      function openModal(html) {
+        modalBox.innerHTML = html;
+        modalBackdrop.classList.remove('hidden');
+        modalBackdrop.classList.add('flex');
+        const closeBtn = modalBox.querySelector('[data-close-modal]');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', closeModal);
+        }
+      }
+
+      function closeModal() {
+        modalBackdrop.classList.add('hidden');
+        modalBackdrop.classList.remove('flex');
+      }
+
+      modalBackdrop.addEventListener('click', (e) => {
+        if (e.target === modalBackdrop) closeModal();
+      });
+
+      function showSafetyModal() {
+        openModal(`
+          <div class="flex items-center justify-between border-b border-outline-variant/20 pb-3 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-2xl">shield_with_heart</span>
+              <div>
+                <h3 class="font-headline-sm text-headline-sm text-primary">ஆய்வகப் பாதுகாப்பு நெறிமுறைகள் • Lab Safety Protocol</h3>
+                <span class="font-label-sm text-label-sm text-outline">Tamil Nadu STEM & NCERT Standard Virtual Cleanroom</span>
+              </div>
+            </div>
+            <button data-close-modal type="button" class="p-1 rounded-lg hover:bg-surface-container text-on-surface-variant">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+          <div class="space-y-3 font-body-sm text-body-sm text-on-surface-variant">
+            <label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container cursor-pointer">
+              <input type="checkbox" checked class="accent-cyan-400 w-4 h-4">
+              <span><strong>பாதுகாப்பு கண்ணாடி (Safety Goggles):</strong> அமில-கார (HCl / NaOH) சிதறல்களில் இருந்து கண்களைப் பாதுகாக்க அணியப்பட்டுள்ளது.</span>
+            </label>
+            <label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container cursor-pointer">
+              <input type="checkbox" checked class="accent-cyan-400 w-4 h-4">
+              <span><strong>ஆய்வக மேலங்கி & கையுறைகள் (Lab Coat & Nitrile Gloves):</strong> இரசாயனத் தொடர்பைத் தவிர்க்க சரிபார்க்கப்பட்டது.</span>
+            </label>
+            <label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container cursor-pointer">
+              <input type="checkbox" checked class="accent-cyan-400 w-4 h-4">
+              <span><strong>சென்சார் அளவீடு (298.15K Calibration):</strong> வெப்பநிலைமானி மற்றும் pH மின்வாய் சோதனைக்கு முன் காய்ச்சி வடிகட்டிய நீரில் கழுவப்பட்டது.</span>
+            </label>
+          </div>
+          <div class="mt-5 flex justify-end">
+            <button data-close-modal type="button" class="px-4 py-2 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-bold">
+              புரிந்தது • Acknowledge & Continue
+            </button>
+          </div>
+        `);
+      }
+
+      document.getElementById('btn-safety-modal').addEventListener('click', showSafetyModal);
+      document.getElementById('sidebar-safety-btn').addEventListener('click', showSafetyModal);
+
+      // Export Student Portfolio Modal
+      document.getElementById('btn-export-portfolio').addEventListener('click', () => {
+        openModal(`
+          <div class="flex items-center justify-between border-b border-outline-variant/20 pb-3 mb-4">
+            <div>
+              <span class="font-label-sm text-label-sm text-primary-fixed-dim uppercase">STEM Scholar Portfolio Report</span>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface">மாயா லின் • Maya Lin (Grade 8) — Verified Lab Dossier</h3>
+            </div>
+            <button data-close-modal type="button" class="p-1 rounded-lg hover:bg-surface-container text-on-surface-variant">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+          <div class="grid grid-cols-3 gap-2 mb-4 text-center">
+            <div class="bg-surface-container p-2.5 rounded-lg">
+              <div class="font-label-sm text-label-sm text-outline">Chemistry Exp 04</div>
+              <div class="font-telemetry-display text-lg text-primary font-bold">95/100</div>
+              <div class="text-[11px] text-primary-fixed-dim">pH 7.02 | ΔT +6.4°C</div>
+            </div>
+            <div class="bg-surface-container p-2.5 rounded-lg">
+              <div class="font-label-sm text-label-sm text-outline">Physics Exp 02</div>
+              <div class="font-telemetry-display text-lg text-secondary font-bold">98/100</div>
+              <div class="text-[11px] text-secondary">g = 9.81 m/s²</div>
+            </div>
+            <div class="bg-surface-container p-2.5 rounded-lg">
+              <div class="font-label-sm text-label-sm text-outline">Biology Exp 03</div>
+              <div class="font-telemetry-display text-lg text-tertiary-fixed-dim font-bold">96/100</div>
+              <div class="text-[11px] text-tertiary-fixed-dim">47 bub/min O₂</div>
+            </div>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            Certified by Dr. Arun Kumar & Dr. Sumathi Rajan. Includes ${state.chem.logs.length + state.phys.logs.length + state.bio.logs.length} sensor telemetry points and ${state.notebook.length} research journal entries.
+          </p>
+          <div class="flex flex-wrap items-center justify-end gap-2">
+            <button id="modal-print-btn" type="button" class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">print</span>
+              <span>Print / Save PDF</span>
+            </button>
+            <button id="modal-csv-btn" type="button" class="px-4 py-2 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-bold flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">download</span>
+              <span>Download Telemetry CSV</span>
+            </button>
+          </div>
+        `);
+
+        document.getElementById('modal-print-btn').addEventListener('click', () => {
+          closeModal();
+          window.print();
+        });
+        document.getElementById('modal-csv-btn').addEventListener('click', () => {
+          document.getElementById('btn-export-csv').click();
+          closeModal();
+        });
+      });
+
+      // Upcoming Experiments Preview Modal
+      const upcomingDetails = {
+        exp05: {
+          badge: 'இயற்பியல் • PHYSICS LEVEL 2 (EXP-05)',
+          title: 'எறிபொருள் இயக்கம் & பாதை • Projectile Motion & Trajectory',
+          desc: 'பீரங்கி குண்டின் ஆரம்ப திசைவேகம் (v₀) மற்றும் ஏவுதல் கோணம் (θ) ஆகியவற்றை மாற்றி பரவளையப் பாதை (Parabolic Range R = v₀²sin(2θ)/g) மற்றும் பெரும உயரத்தை (H) ஆராய்தல்.',
+          formula: 'Range R = (v₀² · sin 2θ) / g   |   Max Range at θ = 45°',
+          relatedExp: 'phys'
+        },
+        exp06: {
+          badge: 'வேதியியல் • CHEMISTRY LEVEL 2 (EXP-06)',
+          title: 'எதிர்வினை வேகம் & வினையூக்கி • Reaction Kinetics & Catalysis',
+          desc: 'சோடியம் தயோசல்பேட் மற்றும் HCl வினையில் வெப்பநிலை மற்றும் செறிவு மாற்றத்தால் ஏற்படும் கந்தக வீழ்படிவு நேரத்தை (Arrhenius Activation Energy) கணக்கிடுதல்.',
+          formula: 'Rate = k[A]ᵐ[B]ⁿ   |   k = A · e^(-Ea / RT)',
+          relatedExp: 'chem'
+        },
+        exp07: {
+          badge: 'உயிரியல் • BIOLOGY LEVEL 2 (EXP-07)',
+          title: 'வெங்காயத் தோல் செல் சாயம் • Onion Epidermal Cell Microscopy',
+          desc: 'அயோடின் மற்றும் சப்ரானின் சாயம் பயன்படுத்தி கூட்டு நுண்ணோக்கியில் (40x, 100x, 400x) செல் சுவர், உட்கரு (Nucleus) மற்றும் பிளாஸ்மோலைசிஸ் நிகழ்வை உற்றுநோக்குதல்.',
+          formula: 'Total Magnification = Objective Lens × Eyepiece (10x)',
+          relatedExp: 'bio'
+        }
+      };
+
+      document.querySelectorAll('[data-upcoming]').forEach(card => {
+        card.addEventListener('click', () => {
+          const key = card.getAttribute('data-upcoming');
+          const info = upcomingDetails[key];
+          if (!info) return;
+          openModal(`
+            <div class="flex items-center justify-between border-b border-outline-variant/20 pb-3 mb-4">
+              <span class="px-2.5 py-1 rounded-full bg-primary-container/15 text-primary-fixed font-label-sm text-label-sm">${info.badge}</span>
+              <button data-close-modal type="button" class="p-1 rounded-lg hover:bg-surface-container text-on-surface-variant">
+                <span class="material-symbols-outlined">close</span>
+              </button>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">${info.title}</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mb-4">${info.desc}</p>
+            <div class="bg-surface-container-lowest p-3 rounded-lg font-telemetry-display text-xs text-primary-fixed mb-5">
+              ${info.formula}
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-outline">Status: Syllabus Preview Unlocked ✅</span>
+              <button id="modal-launch-related" type="button" class="px-4 py-2 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-bold">
+                Open Active ${info.relatedExp.toUpperCase()} Lab Bay
+              </button>
+            </div>
+          `);
+          document.getElementById('modal-launch-related').addEventListener('click', () => {
+            closeModal();
+            selectActiveExperiment(info.relatedExp, true);
+          });
+        });
+      });
+
+      // Initialize All Views & Charts on Load
+      updateChemistryUI(false);
+      updatePhysicsParameters();
+      updateBiologyParameters();
+      renderNotebookEntries('all');
+      requestAnimationFrame(animateSimulators);
+    });
+  </script>
+</body>
+</html>
